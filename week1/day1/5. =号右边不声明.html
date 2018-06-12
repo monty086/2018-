@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * =号右边不进行变量声明，只有=号左边进行变量声明
+    *
+    * */
+    console.log(fn);// f()
+    console.log(fn1); // undefined
+   // console.log(fn2); // fn2 is not defined
+    fn()
+    //fn1()
+    function fn(){
+
+    }
+    var fn1 = function fn2(){
+    }
+    fn1()
+    //fn2()//
+
+    //console.log(fn3);
+    var obj = {
+        a:function fn3(){
+
+        }
+    }
+
+
+    fn(); // 4
+    function fn() {console.log(1);}
+    fn(); // 1
+    function fn() {console.log(2);}
+    fn(); // 2
+    var fn=13;
+    fn(); // 13
+    function fn() {console.log(3);}
+    fn(); // 3
+    function fn() {console.log(4);}
+    fn(); // 4
+
+
+
+    var  ary = 1
+    var ary=2
+    console.log(ary);
+
+    function f() {
+        console.log(1);
+    }
+    function f() {
+        console.log(2)
+    }
+
+    console.log(f()); // undefined
+
+
+</script>

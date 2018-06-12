@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 带var 和不带 var的区别
+    * 如果你碰到一个属性或者方法可以直接执行，如果它不是一个变量的话，它就是window下的一个属性
+    * 连等的情况下，只有带var才是一个变量，其他都是给window添加了一个属性
+    * */
+
+    //console.log(b) //
+    b =1 // window.b
+    console.log(b);//1
+    console.log(window.b) //1
+
+    //window.setInterval()
+    fn()
+    function fn(){
+        var b=1;
+        console.log(b)//1
+        console.log(window.b)// 1
+    }
+
+    console.log('b' in window);
+
+    //console.log(a, b, c); //undefined
+    var a = b =c =1 ; // a  window.b window.c window.a
+    console.log(b, c); // 1
+
+    console.log(x) // undefined
+    var x =1
+    x=2
+    console.log(x) //2
+
+    //var y // undefined
+    y = 1  // window.y =1
+    y = 2  // window.y =2
+    //alert(1)
+    console.log(y) //
+
+    var a =b =c='b' // window.a='b' window.b ='b' window.c='b'
+    console.log(b); // window.b='b'
+    //console.log(window.b); // 'b'
+    if( b in window){  // window.b = 'b'
+        console.log(b in window); //true
+        console.log(b) // window.b 'b'
+    }
+
+    var obj = {name:'zhufeng'}
+    console.log(obj.name);
+    for(var key in obj){
+        console.log(key);
+    }
+
+
+</script>

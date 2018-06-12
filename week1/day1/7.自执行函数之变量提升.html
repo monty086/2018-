@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script>
+    /*
+    * 自执行函数没有变量提升
+    * 函数做为参数的时候没有变量提升
+    * 函数在=号右边作为值的时候也没有进行变量提升
+    * */
+    //console.log(fn)// fn is not defined
+    (function fn(){})()
+
+    //console.log(fn2); //fn2 is not defined
+    setInterval(function fn2(){},1000)
+    //console.log(fn3)  //fn3 is not defined
+    //[1,2].forEach(function fn3(){})
+
+    console.log(fn4); //fn4 is not defined
+    box.onclick = function fn4() {
+
+    }
+</script>

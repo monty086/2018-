@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    /*
+    *
+    * 函数中，return右边的不进行变量提升，return 下面的会进行变量提升
+    *
+    * */
+    function fn(){
+        //console.log(fn1) // fn1 is not defined
+        console.log(fn2); // undefined
+        console.log(a); //
+        return function fn1(){
+        }
+        var a =1
+        function fn2(){
+        }
+    }
+
+    console.log(fn());//fn1()
+</script>
