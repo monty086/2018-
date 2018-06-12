@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box" class="haha"></div>
+</body>
+</html>
+
+<script>
+    /*
+    * attribute 自定义属性
+    *
+    * */
+    console.log(box.attributes);
+
+    // 设置一个自定义属性
+    box.setAttribute('name',1)
+
+    // 获取一个自定义属性
+    console.log(box.getAttribute('name'));
+
+    // 移除一个自定义属性
+    box.removeAttribute('name')
+
+    box.index = 'zhufeng'
+    console.log(box.index);
+
+    console.log(box.getAttribute('index')); //native code
+
+    box.setAttribute('nihao',"北京")
+    console.log(box.nihao); //undefined
+
+    /*
+    * 1. 用什么设置，就用什么获取，包括 【attribute 和 .】这两种方式
+    * 2. 用attribute 这种方式设置，可以在标签上可以看到，用.这种方式，在标签上看不到
+    *
+    * */
+    null == undefined // true
+
+
+</script>

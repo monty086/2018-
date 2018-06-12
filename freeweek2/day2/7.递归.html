@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 递归：函数自己调用自己就是递归
+    *
+    * */
+
+    // 1-100 累加的和
+    var count=0
+    for(var i=0;i<=100;i++){
+        count+=i
+    }
+    // 函数声明式  function fn（）{}
+    function fn(){
+        fn()
+    }
+    // fn()
+
+    // 1-100的累加，用递归来实现
+    function sum (num){ // 100
+        // if(num==0){
+        //     return 0
+        // }
+        return num  +  sum(num-1) //99
+
+        // num  +  (num  +  sum(num-1))
+        // 100  +  (99  +  sum(99-1))
+        // 100  +  (99  +  (98  +  sum(98-1)))
+        // 100  +  (99  +  (98  +  (97  + sum(97-1)))
+        // 100  +  (99  +  (98  +  (97  + 2+ sum(2-1)))
+        // 100  +  (99  +  (98  +  (97  + 2+ 1+sum(1-1)))
+        // 100  +  (99  +  (98  +  (97  +... 2+ 1+0))
+    }
+    function sum(num){
+        // num =0
+        if(num==0){
+            return 0
+        }
+    }
+    var a = sum(100)
+    console.log(a);
+    /*
+    * return   100 + sum(99)
+    *          100 + 99 + sum(99-1)
+    *          100 + 99 + 98 + sum(98-1)
+    *          100 + 99 + 98 + 97+ sum(97-1)
+    *          100 + 99 + 98 + ...+ 2+ sum(2-1)
+    *          100 + 99 + 98 + ...+ 2+ 1 + sum(1-1)
+    *          100 + 99 + 98 + ...+ 2+ 1 + 0
+    *
+    * */
+
+    // 被3 整除
+
+    var a = sum(100)
+    console.log(a);
+
+    var timer1 = setTimeout(()=>{})
+    var timer2 = setTimeout(()=>{})
+    var timer3 = setTimeout(()=>{})
+    var timer4 = setTimeout(()=>{})
+    var timer5 = setTimeout(()=>{})
+    console.log(timer3);
+
+    // 函数
+    function fn(){} // 有名函数
+    var fn1 = function xxx(){} // 匿名函数
+    console.log(xxx);
+    /*
+    * 点击事件
+    * 函数做为参数
+    * */
+
+    //自执行函数
+    (function(){})()
+    (function(){}())
+    !~+-function(){}()
+
+    // 箭头函数 ()=>{}
+    let fn = ()=>{}
+    let fn = ()=>1
+    fn()
+    let fn = num=>num
+    fn(1)
+</script>

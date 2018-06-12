@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 函数的返回值：return
+    * 函数的返回值，如果不写return 或者return 空，那这个函数的执行结果就是
+    * 当函数执行的时候，函数中return 下面的代码不执行
+    * */
+
+    function fn(a){
+        // return 1
+        console.log(a)//1
+        return a++
+        a++
+        console.log(a++);
+        console.log(a)
+     }
+
+   /* console.log(fn);
+    console.log(fn()); //undefined
+    console.log(fn()); *///'a'
+    //console.log(fn()); // 1
+    fn(1)
+
+</script>

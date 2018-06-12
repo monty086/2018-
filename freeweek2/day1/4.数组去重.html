@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 数组去重:
+    * 1. 排序法
+    * 2. indexOf => 3 对象类比
+    * 3. 利用对象的不重名原理，双循环
+    * 4. 对象是操作的内存的地址的原理
+    * 5. 数组中重复的项是什么，分别出现多少次
+    *
+    * */
+    var ary = [2,21,2,5,2,1,4,21,3,5];
+
+    // 排序法
+    function sortArr(ary){
+        var newAry =[]
+        ary.sort(function(a,b){
+            return a-b
+        })
+        for(var i=0;i<ary.length;i++){
+            // if(ary[i]==ary[i+1]){
+            //     ary.splice(i,1)
+            //     i--
+            // }
+            if(ary[i]!=ary[i+1]){
+                newAry.push(ary[i])
+            }
+        }
+        return newAry
+    }
+    var a = sortArr(ary)
+
+    // indexOf
+    function ofIndex (ary){
+        var newArr = [],obj={} ;
+        for(var i=0;i<ary.length;i++){
+            // if(newArr.indexOf(ary[i])== -1){
+            //     newArr.push(ary[i])
+            // }
+            // if(!newArr.includes(ary[i])){
+            //     newArr.push(ary[i])
+            // }
+            var cur = ary[i]
+            if(!obj[cur]){ // ary[i] 1,2,3,1 obj{1:1}
+                // obj = {} //1  obj[1] = undefined
+                obj[cur]=cur // obj[1] = 1 // {1:1}
+                newArr.push(cur)
+            }
+        }
+        return newArr
+    }
+    var a = ofIndex(ary)
+    //console.log(a);
+
+    // 双循环
+    // 利用了对象的属性名不重复的原理
+    function forTwo (ary){
+        var newArr = [],obj={};
+        // [1,2,3,1] 0,1,2,3
+        for(var key in ary){
+            obj[ary[key]] = ary[key] // {1:1,2:2,3:3}
+        }
+        console.log(obj)
+        //{1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 21: 21}
+        for(var i in obj){
+            i//对象的属性名 obj[i]
+           newArr.push(obj[i])
+        }
+        // [1, 2, 3, 4, 5, 21]
+        return newArr
+    }
+    var a = forTwo(ary)
+    //console.log(a);
+
+    // 利用对象操作地址的原理
+    function spliceArr(ary){
+        var obj = {};
+        for(var i=0;i<ary.length;i++){
+            var cur = ary[i];
+            // [1,2,3,1,5] {1:1}
+            if(obj[cur]==cur){ //obj {} == 1 // {1:1} obj[1] == 1
+                ary.splice(i,1);
+                i--
+            }else{
+                obj[cur]=cur // {1:1,2:2,3:3}
+            }
+        }
+        return ary
+    }
+    var a = spliceArr(ary)
+    console.log(a);
+    var ary1 = [2,21,2,5,2,1,4,21,3,5];
+    var a = [...new Set(ary1)]
+    console.log(a);
+
+    var ary2 = [2,21,2,5,2,1,4,21,3,5];
+    // 数组中重复的项是什么，分别出现多少次;
+    function repArr(ary){
+        var obj = {};
+        // 1,2,3,4,1
+        for(var i=0;i<ary.length;i++){
+            var cur = ary[i]
+            // 属性值： 对象.属性名
+            // {name:1}[name] =1
+            if(obj[cur]){ //{1:2,2:1} 1 // underfined
+               obj[cur]++
+            }else{
+               obj[cur]=1  // {1:1,2:1}
+            }
+        }
+        console.log(obj);//{1:2,2:1}
+    }
+    var a =repArr(ary2)
+    console.log(a);
+
+</script>

@@ -1,0 +1,18 @@
+数组的反转和排序
+reverse sort(function(a,b){return a-b})
+
+数组的循环 forEach map[返回值新数组]
+
+var a =[1,2].map(function(item,index){
+    return item+1
+})
+a = [2,3]
+
+数组转字符串 join 【通过连接符】 toString()
+
+createElement('标签名')
+cloneNode()
+insertBefore(新节点，旧节点)
+appendChild()
+replaceChild(新节点，旧节点)
+removeChild

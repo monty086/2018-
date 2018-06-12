@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #obox{
+            width: 300px;
+            height: 400px;
+            border:1px solid rebeccapurple;
+            margin:50px auto;
+        }
+        #obox ul{
+            height:50px;
+            list-style:none
+        }
+        #obox ul li{
+            width: 100px;
+            float:left;
+            text-align: center;
+            line-height: 50px;
+            background: lightblue;
+        }
+        #obox ul li.click{
+            background-color: rebeccapurple;
+        }
+        #obox div{
+            height: 350px;
+            width: 300px;
+            background-color: orangered;
+            text-align: center;
+            line-height: 350px;
+            display: none;
+        }
+
+        .click{
+            display: block !important;
+        }
+    </style>
+</head>
+<body>
+<div id="obox">
+    <ul>
+        <li class="click">选项一</li>
+        <li>选项二</li>
+        <li>选项三</li>
+    </ul>
+    <div class="click">我的内容1</div>
+    <div>我的内容2</div>
+    <div>我的内容3</div>
+</div>
+</body>
+</html>
+
+<script>
+    //1获取元素
+    var obox = document.getElementById('obox');
+    var lis = obox.getElementsByTagName('li');//元素数组[li,li,li]
+    var divs = obox.getElementsByTagName('div');//元素数组
+    //[div,div,div] [3]
+
+    //循环按钮
+    for(var i=0 ;i<lis.length;i++){ //3
+        lis[i].index = i // 循环每一项，添加一个自定义属性 index
+        lis[i].onclick = function () { //
+            //var i =1
+            // 循环每项，给当前的元素的onclick属性事件添加 一个方法
+            for(var j =0;j<lis.length;j++){
+                // 这个循环是为了全部清空 之前选中的样式
+                lis[j].className='';
+                divs[j].className =''
+            }
+           this.className = 'click'; // this就是 当前的点击元素，给当前的 点击元素的原生属性className 添加属性值 ’‘click
+           divs[this.index].className = 'click' // 让divs的当前的那一项【this.index是之前循环的时候，给每一个循环的元素添加的自定义属性，而属性值就是 当前的i值，】 添加click类名
+        }
+    }
+</script>

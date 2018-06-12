@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var ary = [13,3,22,16,90,0];
+
+    function quick (ary){
+        if(ary.length<=1){
+            return ary
+        }
+        var index = Math.floor(ary.length/2);
+        var mid = ary.splice(index,1)// 截取的数字 返回值改变 ary
+        var left = [],right=[];
+        for (var i= 0;i<ary.length;i++){
+            if(mid>ary[i]){
+                left.push(ary[i])
+            }else{
+                right.push(ary[i])
+            }
+        }
+        return quick(left).concat(mid,quick(right))
+    }
+
+    console.log(quick(ary));
+</script>

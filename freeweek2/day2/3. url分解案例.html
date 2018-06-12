@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var url = 'https://www.baidu.com/s?wd=6665&rsv_spt=1&rsv_iqid=0xfa2776be0002781f&issp=1&f=8&rsv_bp=0&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_sug3=7&rsv_sug1=7&rsv_sug7=101&rsv_sug2=0&inputT=1442&rsv_sug4=20364'
+
+    var index = url.indexOf('?')
+    var query = url.substring(index+1)
+    console.log(query);
+    var ary = query.split('&')
+    console.log(ary);
+    var obj = {}
+    // [wd=6665,rsv_spt=1...]{wd:6665,rsv_spt:1...}
+    for(var i=0;i<ary.length;i++){
+        var cur = ary[i] // cur wd=6665
+        var newCur = cur.split('=') // [wd,6665]
+        obj[newCur[0]]=newCur[1]
+    }
+    console.log(obj);
+
+    //携参数跳转
+
+</script>

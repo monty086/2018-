@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+      for循环
+    * for(初始的变量值；循环的【条件】也是次数；让变量持续累加){ 条件成立以后执行的代码}
+    *
+    * */
+    // for(var i=0;i<5;i++){
+    //     console.log(i)
+    // }
+
+    /*
+    * 第一次 i=0  条件 i<5 【成立】 执行{}代码 ， 让i值累加
+    * 第二次 i=1  条件 i<5 【成立】 执行{}代码， 让i+1
+    * 第三次 i=2  条件 i<5 【成立】 执行{}代码， 让i+1
+    * 第四次 i=3  条件 i<5 【成立】 执行{}代码， 让i+1
+    * 第五次 i=4  条件 i<5 【成立】 执行{}代码， 让i+1
+    * 第六次 i=5  条件 i<5 【不成立】 不能执行{}代码， 不能让i+1
+    * */
+    // console.log(i); //5
+    // var num = 1
+    // for(var i=0;i<num;i++){
+    //     console.log(i)// 0
+    // }
+
+    /*
+    * for循环的顺序
+    * 1. 初始值
+    * 2. 判断是否符合条件
+    * 3. 执行代码
+    * 4. 初始值累加，再继续循环，直到不符合条件
+    *
+    * */
+    //console.log(i); //1
+
+    /*
+    * continue:循环体中遇到continue，下面代码不执行，直接继续累加循环
+    * break: 循环体中遇到 break直接跳出循环体
+    * */
+    var key=0 //1 3
+    for(var i=0;i<5;i++){
+        if(i==3){
+            continue // 7
+            //break
+        }
+        //console.log(i)
+        key+=i
+        key =0+0
+        key =0+1
+        key =1+2 //3
+        key =3+4 // continue 7
+        // i++
+        // i=i+1
+        // i+=1
+    }
+    // i= 0 1 2 3 4
+    console.log(key);//3
+
+    var num = 0//1 3 7
+    for(var b =0;b<10;b++){
+        if(b==5){
+            //b=3
+            console.log(num);//3
+            break
+        }else{
+            num=num+b//1+2+4
+            console.log(b);// 3 0 1 2
+        }
+    }
+    console.log(num);//3
+</script>

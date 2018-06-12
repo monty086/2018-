@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * null 和 undefined
+    * null:空，
+    * 1. 给变量进行初始化
+    * 2. 清空一个属性
+    * undefined：未定义
+    * 1. 声明一个变量，如果没有给变量赋值，它就是undefined
+    * 2. 一个对象如果没有这个属性，那它的属性值就是undefined
+    * 3. 一个函数如果没有return，那它的返回值就是undefined
+    * */
+
+    //undefined
+    var a;
+    console.log(a);
+    var obj = {name:'zhufeng'}// 对象 属性名：属性值
+    console.log(obj.name); // 'zhufeng'
+    console.log(obj.x); // undefined
+
+    var fn = function (){return }
+    console.log(fn());//
+
+    var b = null //给变量进行初始化
+    obj.name = null
+    console.log(obj.name);// null
+    obj = null
+    console.log(obj); // null
+
+</script>

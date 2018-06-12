@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            width: 140px;
+            height: 40px;
+            background: red;
+            color:white;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            margin: 100px;
+            border:1px solid #2b7dd1;
+            letter-spacing: 4px;
+            font-size: 26px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <input type="button" value="点击跟换验证码" id="input">
+</body>
+</html>
+<script>
+    /*
+    * 随机的验证码
+    *
+    * */
+
+    // 0-9之间数字的不重复验证码
+
+    var str = '' ;
+    for (var i=0;i<4;i++){
+        var num = Math.round(Math.random()*9)
+        // 157[1,5,7]
+        if(str.indexOf(num)==-1){
+            str+=num 
+        }else{
+            i--
+        }
+    }
+    box.innerHTML = str
+
+    var input = document.getElementById('input')
+    // 随机验证码
+    var numStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'+'abcdefghijklmnopqrstuvwxyz'+'1234567890';
+    console.log(numStr[62]);
+
+    function numberCode (str){
+        var str = '';
+        for(var i=0;i<4;i++){
+            var num = Math.round(Math.random()*61)
+            console.log(numStr[num]);
+            if(str.includes(numStr[num])){
+                i--
+            }else{
+                str+=numStr[num]
+            }
+        }
+        box.innerText = str
+    }
+
+    input.onclick = function(){
+        numberCode(numStr)
+    }
+
+    var str1 = '01'// 0 1 2
+    console.log(Math.round(Math.random() * 2));// 0 1 2
+
+
+</script>

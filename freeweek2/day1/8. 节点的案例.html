@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">
+        <!--haha-->
+        <p>我的p标签</p>
+        牛牛牛
+        <h2>珠峰</h2>
+        <!--呵呵呵-->
+        <!--呵呵呵-->
+        <!--呵呵呵-->
+        <!--呵呵呵-->
+        <!--呵呵呵-->
+        <!--呵呵呵-->
+        <!--呵呵呵-->
+        <!--呵呵呵-->
+        <h1>培训</h1>
+    </div>
+</body>
+</html>
+<script>
+    // 求当前元素下所有的元素节点
+    var box  = document.getElementById('box');
+    var childs = box.childNodes;
+    var arr = [];
+    for(var i=0;i<childs.length;i++){
+        if(childs[i].nodeType ==1){
+            arr.push(childs[i])
+        }
+    }
+    console.log(childs)
+
+    // h1标签 上一个哥哥元素节点
+
+    var h1 = document.getElementsByTagName('h1')[0];
+    var prev = h1.previousSibling;
+    while(prev.nodeType!=1){ // prev是一个元素节点
+        prev = prev.previousSibling// 哥哥的上一个哥哥节点赋值给这个prev变量
+    }
+    console.log(prev)
+
+    // h2 下一个弟弟元素节点
+
+</script>

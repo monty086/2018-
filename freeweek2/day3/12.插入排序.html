@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var ary = [13,23,3,22,16,90,0];
+
+    function innerArr(ary){
+        // 手里的牌
+        var handel = [ary[0]]; // 13
+        // 循环公共的牌
+        for(var i=1;i<ary.length;i++){//23,22,16,90,0
+            var cur = ary[i]; //23 3
+            // 赋值cur 公共的牌 3
+            for(var j= handel.length;j>=0;j--){ //[13]
+                if(cur>handel[j]){ // 23>13 3<23 14
+                    handel.splice(j+1,0,cur)//[13,23]
+                    break
+                }
+                // if(j==0){
+                //     handel.unshift(cur)
+                // }
+            }
+            if(handel.indexOf(cur)==-1){
+                handel.unshift(cur)
+            }
+        }
+        return handel
+    }
+
+    console.log(innerArr(ary));
+
+    // for(var i=0;i<5;i++){
+    //     console.log(i); //0 1 2 3  4
+    // }
+    // for(var i=5;i>0;i--){
+    //     console.log(i); //5 4 3 2 1
+    // }
+</script>

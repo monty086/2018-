@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">
+        <ul id="ul">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div id="car"></div>
+</body>
+</html>
+<script>
+    /*
+    * 动态创建元素
+    *
+    * */
+    var box = document.getElementById('box')
+    var ul = document.getElementById('ul')
+
+    //创建一个元素
+    var div = document.createElement('div')// 标签名
+
+    // 克隆一个节点
+    var div2 = box.cloneNode(false) // true:元素以及元素下的子子孙孙都克隆  false：表示只克隆当前的这个元素
+    console.log(div2);
+
+    // 添加一个节点
+    box.appendChild(div) // 在box元素里面的末尾添加了div节点
+    console.log(box);
+
+    box.appendChild(document.getElementById('car'))
+    console.log(box);
+
+    // 移除一个节点
+    box.removeChild(div) //移除当前元素下的一个节点
+
+    // insertBefore 插入一个节点
+    box.insertBefore(div,ul)// （新，旧） 表示在box下面，旧的节点前插入新的节点
+
+    var p = document.createElement('p')
+    // replaceChild
+    box.replaceChild(p,div) // (新，旧) 表示在box下，将旧的元素节点，替换成新的元素节点
+    p.style.backgroundColor = 'red';
+    p.innerHTML = 666
+
+    //p.className = 'bg';
+    p.classList.add('bg','bg2','bg3')
+    p.className = 'bg bg2 bg3 bg4';
+    p.classList.add('bg9')
+    p.classList.remove('bg2')
+
+</script>
+<script>
+    /*createElement
+    cloneNode
+    appendChild
+    removeChild
+    insertBefore
+    repalceChild*/
+</script>

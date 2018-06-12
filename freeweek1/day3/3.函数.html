@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 函数：又叫做方法
+    * 函数的组成：定义函数，和 执行函数
+    * 形参：又叫做参数，它是实参传给它的参数
+    * 定义一个函数没有任何意义，执行函数才有意义
+    * 函数只要定义一次，可以再不同的地方去执行它，而且他们都没有任何关系
+    * 函数执行必须后面加一个小括号
+    * */
+    //定义函数
+    // function 函数名 (形参){
+    //     代码执行的地方-函数体
+    // }
+    //执行函数
+    //函数名(实参)
+
+    // function fn (m,n){
+    //     console.log(m+n) // '12'
+    //     console.log(n);
+    // }
+    // fn(1,'2')
+    // fn(1,undefined)
+
+    // var fn = function (a,b) {
+    //     console.log(a); //1
+    // }
+    //fn//1实参
+    //console.log(fn); //就是函数本身
+    // var f = fn;
+    // f()
+
+    /*function fun(a,b,c){
+        console.log(b); // 未定义 undefined
+        console.log(c); // undefined
+
+        console.log(a)//1
+        console.log(a+b)//3
+        console.log(a+b+c)//6
+        var x = 1;
+        console.log(x+a) //2
+    }
+    fun(1)*/
+    // fun(1,2)
+    // fun(1,2,3)
+
+    var a = 1;
+    var b = 2; //
+    function fn(a){
+        a++
+        console.log(a);// 2
+        console.log(b)
+    }
+
+    fn(a++);
+    console.log(a); // 2
+</script>

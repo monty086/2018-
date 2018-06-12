@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+
+</div>
+</body>
+</html>
+<script>
+    // var box = document.getElementById('box');
+    // console.log(box);//
+    //
+    // var a = box.getElementById('a')
+    // console.log(a);
+</script>
+
+<script>
+    //运算符的优先级
+    //() ! +-*/ &&|| == 三元运算符 =
+    /*
+    * ()
+    * !
+    * +-*\/
+    * && ||
+    * ==
+    * 三元运算符
+    * =
+    * */
+
+    var a = (0)==!1? Number(NaN) || 'zhufeng': null;
+    console.log(a);
+
+    // &&
+    // ||
+    //var b = 1 && 0;
+    var b = false && true;
+    //if(1==2 && 2==3)
+    var b = 11 || 12 ; // 前面true 的直接取
+    console.log(b)
+
+    var obj = {name:1}
+    var a = obj;
+    obj.name=2
+    console.log(a);// {name:2}
+
+
+</script>

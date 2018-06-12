@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 1000px;
+            height: 50px;
+            background: -webkit-linear-gradient(lightblue,#666);
+            text-align: center;
+            line-height: 50px;
+            font-size: 40px;
+            margin: 100px auto;
+            color:#fff;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">距离下次吃鸡游戏还剩下：1天3小时5分钟6秒</div>
+</body>
+</html>
+<script>
+    function lastTime(time){
+        var targetTime =  new Date(time).getTime();
+        var todayTime = Date.now();
+        var day = Math.floor((targetTime-todayTime)/(1000*60*60*24));
+        var hours = Math.floor((targetTime-todayTime)%(1000*60*60*24)/(1000*60*60));
+        var minutes = Math.floor((targetTime-todayTime)%(1000*60*60*24)%(1000*60*60)/(1000*60));
+        var seconds = Math.floor((targetTime-todayTime)%(1000*60*60*24)%(1000*60*60)%(1000*60)/1000);
+        box.innerHTML = `距离下次吃鸡游戏还剩下：${day}天${hours}小时${minutes}分钟${seconds}秒`
+    }
+    setInterval(function(){
+        lastTime('2018-06-08 20:20:00')
+
+    },1000)
+</script>

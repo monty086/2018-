@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * Math:是一个对象，属性名和属性值，用来做计算的
+    *
+    *
+    * */
+
+    // 取最大值
+    console.log(Math.max(1,2,3));
+    console.log(Math.max(...[1,2,3]));
+
+    // 取最小值
+    console.log(Math.min(1, 2, 4));
+
+    // 向上取整
+    console.log(Math.ceil(1.2));// 取的大于当前值的最小整数
+
+    // 向下取整
+    console.log(Math.floor(1.9));// 取的是小于当前值的最大整数
+
+    // 取绝对值
+    console.log(Math.abs(-1.2)); // 去除负号
+
+    // 开平方
+    console.log(Math.sqrt(16));
+
+    // 幂平方
+    console.log(Math.pow(4,3)); //4x4x4
+
+    // 四舍五入
+    console.log(Math.round(4.4)); // 5
+
+    // 取随机数
+    console.log(Math.random()); // 取0-1之间的随机小数
+
+    // 取一个[0-100]之间的[随机][整数]
+    console.log(Math.round(Math.random()*100)); //
+
+    // 取一个10-100之间的随机整数
+    // 取n到m 之间的一个随机整数 公式：(m-n)+n
+    //Math.round(Math.random()*(m-n)+n)
+
+    // 取5-65 之间的一个随机整数
+    console.log(Math.round(Math.random() * (65 - 5) + 5));
+
+
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>
+<script>
+    /*
+    * 数组：
+    * 数组又是对象数据类型，它具有对象数据类型的特性【操作引用地址】
+    * 它有属性名和属性值 它的属性名又叫索引，从0依次累计
+    * 数组里的每一项都是用逗号来隔开，放任何数据类型
+    * 数组又length长度，有索引
+    * */
+
+    var ary = [1,2,4,5,6] //4
+
+    console.log(ary[0]);
+    console.log(ary[0]);
+    console.log(ary[ary.length - 1]);
+    /*
+    * 类数组：
+    * 类数组也叫数组：它也有length和索引
+    * 1. 元素集合 也是类数组
+    * 2. arguments 实参的集合也是类数组
+    * 区别：类数组不具有数组上面的方法
+    * */
+    var lis = document.getElementsByTagName('li')
+    console.log(lis);
+    function fn(){
+        console.log(arguments);
+    }
+    console.dir(ary)
+</script>

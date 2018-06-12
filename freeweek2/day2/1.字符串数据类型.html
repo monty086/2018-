@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="www.baidu.com" alt="">
+</body>
+</html>
+<script>
+    /*
+    * 字符串：双引号或者单引号包裹的任何字符都叫字符串
+    * 字符串种有length也有索引 ，可以便利
+    * 字符串碰到+ 会形成字符串拼接
+    * es 6如果拼接字符串通过 ${} 来拼接
+    * */
+    var str = 'abc';
+    console.log(str.length);
+    console.log(str[0]);
+    for(var i=0;i<str.length;i++){
+
+    }
+
+    var newStr = str+6 // 运算一旦不成立，返回NaN
+    console.log(newStr);// 'abc6'
+
+    var oldStr = 'a'+'b'+'c'
+
+    //es6
+    //'abc'+str+'123'+str // es5
+    var es6Str = `abc${str}`;
+    var es6Str = `abc${str}123${str}`
+
+</script>

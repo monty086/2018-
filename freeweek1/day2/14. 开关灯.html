@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+            /*background-color: white;*/
+        }
+    </style>
+</head>
+<body id="oBody" style="background-color: white">
+
+</body>
+</html>
+
+<script>
+    var oBody = document.getElementById('oBody')
+    //var oBody = document.getElementsByTagName('body')[0]
+    oBody.onclick = function () {
+        // background-color CSS写法
+        // backgroundColor
+        // margin-left css
+        // marginLeft // 驼峰
+        var bg = oBody.style.backgroundColor
+        // 拿到行内的样式，通过.style的方式拿到
+        console.log(bg);// white
+        if(bg == 'white'){
+            oBody.style.backgroundColor = 'black'
+        }else {
+            oBody.style.backgroundColor = 'white'
+        }
+        // 点击让白色 ，点击白色 让它变成黄色，点击 黄色 变成绿色，点击绿色，再变成白色
+
+
+
+
+    }
+</script>

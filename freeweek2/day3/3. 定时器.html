@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * setTimeOut
+    * setInterval
+    *
+    * 递归+setTimeOut = 无限循环
+    * */
+
+    // 定时器+递归
+    function fn(){
+       setTimeout(fn,1000)
+    }
+    fn()
+
+    setInterval(fn,1000)
+</script>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+            width: 300px;
+            height: 320px;
+            border:1px solid #666;
+            margin:100px auto;
+        }
+        li{
+            height: 40px;
+        }
+        .bg1{
+            background-color: lightblue;
+        }
+        .bg2{
+            background-color: pink;
+        }
+        .bg3{
+            background-color: orange;
+        }
+        /*li:nth-child(odd){*/
+            /*background-color: lightblue;*/
+        /*}*/
+        /*li:nth-child(even){*/
+            /*background-color: pink;*/
+        /*}*/
+
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>
+<script>
+    /*
+    * % 取模 取余数
+    * 被除数除以除数，如果能除尽，余数0 ，如果除不尽，就是剩下的余数，
+    *
+    * */
+    var lis = document.getElementsByTagName('li');//元素集合
+    console.log(lis)
+    /*
+    *   1-奇数行     => 数组-偶数索引 lis[0]
+    *   2-偶数行     => 数组-奇数索引 lis[1]
+    *   3-奇数行     => 数组-偶数索引 lis[2]
+    *   4-偶数行     => 数组-奇数索引 lis[3]
+    * */
+    for(var i=0;i<lis.length;i++){
+        lis[i].className = 'bg'+(i%2+1);
+        lis[i].color = 'bg'+(i%2+1);
+        // onclick
+        // onmouseover
+        // 宿主
+        lis[i].onmouseover = function () {
+            this.className = 'bg3'
+        }
+        lis[i].onmouseout = function () {
+            this.className = this.color
+        }
+        if(i%2){
+            /*
+            *  0 /2 = 0 => Boolean(0) false
+            *  1 /2 = 1 => Boolean(1) true
+            *  2 /2 = 0 => Boolean(0) false
+            *  3 /2 = 1 => Boolean(1) true
+            *  4 /2 = 0 ...
+            *  5 /2 = 1
+            *  ...
+            * */
+            // 偶数行
+            // lis[i].className = 'bg2'
+        }else{
+            // 奇数行
+            // lis[i].className = 'bg1'
+        }
+    }
+
+</script>

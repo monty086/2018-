@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    *   i++ : 先取值再运算
+    *   ++i : 先运算后取值
+    * */
+
+    var i=1 , key;
+    console.log(i);  //变量没有赋值，这个变量undefined
+
+    // i++
+    // i+=1
+    // i=i+1
+
+    console.log(i++);//1
+    console.log(i++);//2
+    console.log(i);//3
+
+    i//3
+    console.log(++i); // 4
+    console.log(i);//4
+    console.log(++i);//5
+
+    i=3;
+    (i++)+(++i)+(i)+(i++)+(i++)+(++i)+(i++)//11[不对] 26 24 21 23
+
+    i=1;
+    (--i)+(i++)+(i++)+(i--)+(++i)+(i++)+(i--)// 35 23 30
+    // 求最后i值 ，运算的结果
+
+
+
+</script>

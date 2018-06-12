@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            border: 3px dashed lightcoral;
+            font-size: 26px;
+            letter-spacing: 4px;
+            line-height: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+距离下次玩LOL还剩：<span id="timer"></span>
+</body>
+</html>
+<script>
+    var str ='ABCDEFGHIJKLMNOPQRSTUVWXYZ'+'abcdefghijklmnopqrstuvwxyz'+'1234567890';
+    function codeStr(str){
+        var newStr = ''
+        for(var i=0;i<4;i++){
+            // (m-n)+n
+            var num = Math.round(Math.random()*(str.length-1))
+            // str[num]
+            if(newStr.indexOf(str[num])==-1){
+                newStr+=str[num]
+            }else{
+                i--
+            }
+        }
+        box.innerHTML= newStr;
+        box.style.backgroundColor = `rgba(${Math.round(Math.random()*255)},${Math.round(Math.random()*255)},${Math.round(Math.random()*255)},${Math.random()})`
+
+    }
+    codeStr(str)
+
+    var second = 60//59
+    var time = setInterval(function(){
+        if(second<=0){
+            codeStr(str)
+            clearInterval(time)
+            return
+        }
+        second--
+        timer.innerHTML = second
+    },100)
+
+
+
+
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    function sum(num) { //0
+        if(num<=0){
+            return 0
+        }
+        return num+sum(num-1)
+    }
+    var a = sum(100)
+
+    var count = 0
+    for (var i=0;i<=100;i++){
+        if(i%3==0&&i%5==0){
+           count+=i
+        }
+    }
+    console.log(count);
+    // 100内能被3和5整除的数相加
+    function sumThree(num){
+        if(num<=0){
+            return 0
+        }
+        if(num%3==0 && num%5==0 ){
+           return num+sumThree(num-1)
+        }
+        return sumThree(num-1)
+    }
+    var a  = sumThree(100)
+    console.log(a); //0
+
+    // num = 45
+    // return 45+ sum(44)
+    // return 45+ sum(44)+sum(43)+sum(42)+0
+    // return 45+ sum(44)+sum(43)+sum(42)+sum(15)
+    // return 45+ sum(44)+sum(43)+sum(42)+15+sum(14)+0
+
+    function sumThree(num){
+        if(num>=100){
+            return 0
+        }
+        if(num%3==0 && num%5==0 ){
+            return num+sumThree(num+1)
+        }
+        return sumThree(++num)
+        // i++ 先取值后运算 0
+        // ++i 先运算后取值 1
+    }
+    var a  = sumThree(0)
+    console.log(a);
+</script>

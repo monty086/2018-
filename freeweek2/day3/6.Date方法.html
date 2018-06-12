@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    /*
+    * Date:对象数据类型的一种，事件
+    *
+    * */
+
+    var time = new Date()// 现在的时间
+    //Thu Jun 07 2018 12:05:24 GMT+0800 (中国标准时间)
+
+    // 获取年份
+    time.getFullYear() // 2018
+
+    // 获取月份
+    time.getMonth()+1 // 5+1  [0]从0开始排列
+
+    // 获取日期
+    time.getDate() // 7 号
+
+    // 获取星期
+    time.getDay() // 4
+
+    // 获取小时
+    time.getHours() //12
+
+    // 获取分钟
+    time.getMinutes() // 分钟
+
+    // 获取秒
+    time.getSeconds() // 秒
+
+    time.getTime() // 时间戳 取当前时间的毫秒数
+    // Thu Jun 07 2018 12:16:26 GMT+0800 (中国标准时间)
+    // 1s = 1000ms
+    1000*60*60*24
+    // 1970 01 01
+    var yesTime = new Date('2018-06-06 12:21:00').getTime()
+    var todayTime = Date.now()
+    console.log(todayTime-yesTime)
+
+    // 86532390
+    console.log(86532390 / (1000 * 60 * 60 * 24));
+
+</script>

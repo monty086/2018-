@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * if else else if
+    * */
+
+    if(条件1){
+        条件1成立执行的代码
+    }else if(条件2){
+        条件2成立执行的代码
+    }else{
+        以上条件都不成立执行的代码
+    }
+
+    /*
+    *
+    * 三元运算符
+    * ？ ：
+    * */
+    if(条件1){
+        条件1成立执行的代码
+    }else{
+        以上条件都不成立执行的代码
+    }
+    '条件1'?'条件1成立执行的代码':'条件1不成立执行的代码'
+
+    1==2?console.log('你骗我？'):console.log('我没骗你');
+
+    true?console.log('我是真的'):console.log('我的假的');
+
+    if(条件1){条件1成立执行的代码}
+
+    1==2?console.log('是2'):void 0;
+    void 0 // 占位 ，补位， 占了一个位置，没有任何意义
+
+    /*
+    * swicth case
+    *
+    * */
+   // = // 赋值
+   // == // 比较 一般比较 ： 数据类型不同的话，转成相同的数据类型进行比较
+   // === // 严格比较 ： 数据类型和值都相同才为true，只有有一处不同都为false
+
+    1 === '1' // number string // false
+    1 == '1' // true
+    // switch case 用的是严格比较
+
+    switch(条件x){
+        case 条件1:
+            '条件1和条件x相比较【严格比较】成立执行的代码'
+            break;
+        case 条件2:
+            '条件x和条件2相比较【严格比较】成立执行的代码'
+            break; // 阻断代码，
+        default:
+            '条件都不满足执行的代码'
+    }
+
+</script>

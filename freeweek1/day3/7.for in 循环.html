@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var obj = {
+        name:'andy',
+        age: 66,
+        can:'sing',
+        tel:'13812345678',
+        add:'HonGKong'
+    }
+    /*
+    * for in 循环只是用来循环对象的属性名
+    * 注意：我们想要拿到对象中的属性值，需要通过 对象[变量]来拿到
+    * */
+
+    for(var key in obj){
+        //console.log(key); key属性名
+        console.log(obj[key]);
+    }
+</script>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+    <ul class="uls">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <input type="password" name="password">
+</div>
+</body>
+</html>
+<script>
+    /*
+    * dom 是js操作网页的一个接口，它提供了一些属性和方法，用来方便js去操作网页（增删改查）
+    * dom并不是js语法中的一种，js离开了dom操作也就是失去了它的意义
+    *
+    * 常见的dom操作，获取元素
+    * */
+
+    //获取元素通过ID
+    var box = document.getElementById('box'); // id名
+
+    // 通过tagName
+    var lis = document.getElementsByTagName('li') // 标签名
+
+    console.log(lis); // 元素集合  它是一个类数组
+
+    // 通过className
+    var ulc = document.getElementsByClassName('uls') // 类名
+    // ulc // 元素集合， 也是一个类数组。// 低版本ie(6-8)浏览器不兼容
+
+    // 通过name
+    var inputName = document.getElementsByName('password')// name名
+
+    console.log(inputName);
+
+    //获取Html元素
+    var html = document.documentElement
+
+    // 获取body元素
+    var body = document.body
+
+    // 获取当前可视窗口的宽度
+   var w =  document.documentElement.clientWidth || document.body.clientWidth
+
+    // 获取当前可视窗口的高度
+    var h =  document.documentElement.clientHeight || document.body.clientHeight
+
+    // 移动端
+    document.querySelector('div') // 获取一个元素
+    document.querySelector('.ulc')//
+    document.querySelector('#box')//
+
+    document.querySelectorAll('div')// 获取一个集合
+    document.querySelectorAll('.ulc')// 获取一个集合
+    document.querySelectorAll('#box')[0] // 获取一个集合
+
+</script>

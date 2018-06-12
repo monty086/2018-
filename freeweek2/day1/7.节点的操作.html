@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">
+        <!--我是注释-->
+        <p id="p"></p>
+        哈哈我的文本
+        <h1>哈哈</h1></div>
+</body>
+</html>
+<script>
+    /*
+    * 节点是dom中最小的组成单位；节点主要分为：document，元素节点，注释节点，文本节点：文字，空格，换行
+    * 节点主要属性：
+    * */
+
+   /* node     nodeType  nodeName   nodeValue
+    元素节点    1         大写的标签名    null
+    文本节点    3         text         文本内容
+    注释节点    8         comment      注释的内容
+    document   9        document     null   */
+
+   var p = document.getElementById('p');//元素节点
+
+    // parentNode 父节点
+    var parent = p.parentNode
+    console.log(parent);
+
+    // childNodes 子节点
+    var child = parent.childNodes
+    console.log(child);
+
+    // children  元素子节点 // 低版本浏览器不支持
+    var children = parent.children
+    console.log(children);
+
+    // firstChild  box元素下的第一个节点
+    var first = box.firstChild
+    console.log(first);
+
+    // lastChild  box元素下的最后一个节点
+    var last = box.lastChild;
+    console.log(last)
+
+    // previousSibling  上一个哥哥节点
+    console.log(p.previousSibling);
+
+    // nextSibling  下一个弟弟节点
+    console.log(p.nextSibling);
+
+</script>
+
+<script>
+    /*parentNode
+    childNodes
+    children
+    firstChild
+    lastChild
+    previousSibling
+    nextSibling*/
+</script>

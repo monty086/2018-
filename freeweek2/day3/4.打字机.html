@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <div id="box"></div>
+</body>
+</html>
+<script>
+    var str = '975万考生赶考！2018全国高考今起拉开大幕...';
+    var str1 = '敬请期待';
+
+    function fn(ele,str,time,cb){
+        var index = 0;
+        var timer = setInterval(function (){
+            var str6 = str[index++];
+            ele.innerHTML+=str6
+            if(index==str.length){
+                clearInterval(timer);
+                cb&&cb()
+                //box.innerHTML+=str1
+            }
+        },time);
+    }
+
+    // fn(box,str,100,()=>{(fn.bind(null))(box,str1,800)});
+    fn(box,str,100,()=>{fn(box,str1,800)});
+
+
+    //setTimeout(function(){
+        //fn(box,str,100)
+    //     setTimeout(function(){
+            //fn(box,str1,800)
+    //     },100)
+    //})
+    //
+
+
+    // new Promise((res)=>{
+    //     fn(box,str,100)
+    //     setTimeout(()=>{
+    //         res()
+    //     },10)
+    // }).then(()=>{
+    //     setTimeout(()=>{
+    //         fn(box,str1,800)
+    //     },10)
+    // })
+
+    // async function ff(ele,str,time) {
+    //     await new Promise((resolve, reject)=>{
+    //         var index = 0;
+    //         var timer = setInterval(function (){
+    //             var str6 = str[index++];
+    //             ele.innerHTML+=str6
+    //             if(index==str.length){
+    //                 clearInterval(timer)
+    //                 resolve()
+    //             }
+    //         },time)
+    //     })
+    // };
+    // ff(box,str,100).then(()=>{
+    //     fn(box,str1,800)
+    // })
+
+
+
+
+
+
+</script>

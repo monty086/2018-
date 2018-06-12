@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 快速排序：取到中间项数字和左右两边进行对比，小于中间项的放左边数组，大于中间项放右边数组，以上规则递归循环
+    * */
+
+    var ary = [13, 4, 2, 89, 167, 45] //
+
+    function quickNum (ary){
+        if(ary.length<=1){
+            return ary
+        }
+        var index = Math.floor(ary.length/2) // 3
+        //ary[index]
+        var middleNum = ary.splice(index,1)//89 返回值：89 原数组改变吗？
+        var leftArr = [],rightArr = [];
+        for(var i=0;i<ary.length;i++){
+            middleNum>ary[i]?leftArr.push(ary[i]):rightArr.push(ary[i])
+        }
+        //return quickNum(leftArr).concat(middleNum,quickNum(rightArr))
+        return [...quickNum(leftArr),...middleNum,...quickNum(rightArr)]
+    }
+
+    console.log(quickNum(ary));// undefined
+
+
+</script>

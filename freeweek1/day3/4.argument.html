@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var a =1 ;
+    function fn(a){
+        //a== var a
+        console.log(a); //undefined
+        a++
+        console.log(a++)
+        return a
+        console.log(a)
+    }
+    //fn(a) // 输出几次，分别是什么
+    console.log(fn()) // 输出几次，分别是什么
+
+    /*
+    * arguments 实参的集合
+    * 实参：函数执行传的参数
+    * 形参：形式参数，相当于再函数中添加的变量
+    * 实参和形参是一一对应的
+    * arguments:是一个类数组，类似数组
+    * */
+
+    function fn(a,b){
+        console.log(arguments);//[1,2]
+        console.log(arguments.length);//2
+    }
+    fn(1,2)
+
+
+</script>

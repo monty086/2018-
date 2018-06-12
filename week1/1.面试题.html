@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="按钮"/>
+<input type="button" value="按钮"/>
+<input type="button" value="按钮"/>
+<input type="button" value="按钮"/>
+<input type="button" value="按钮"/>
+</body>
+</html>
+
+<script>
+    var inputs = document.getElementsByTagName('input');
+
+    for(var i=0;i<inputs.length;i++){
+        // inputs[i].index=i;
+        // inputs[i].onclick=function () {
+        //     alert(`我是第${this.index+1}个`)
+        // }
+        if(i==0){
+            inputs[i].onclick=function (){
+                alert(`我是第1个`)
+            }
+        }
+        switch(i){
+            case 1:
+                inputs[i].onclick=function (){
+                    alert(`我是第2个`)
+                }
+                break
+        }
+    }
+</script>
+
+<script>
+    //0-9
+    var num = Math.round(Math.random()*9)
+    //code()
+
+
+    var count = 0 //1 2 3 4 5 6 7 8 9 10 11
+    var timer = setInterval(function (){
+        //console.log(count++);// 0
+        ++count;
+        console.log('你确定？') //11 [0-10]
+        if(count>10){
+            console.log('我是10秒之后输出的吗？');
+            // 10秒后验证码显示
+            clearInterval(timer)
+        }
+    },1000)
+
+</script>

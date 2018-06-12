@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    *   = 赋值
+    *   == 比较
+    *   === 严格比较
+    *   对象 =》 字符串 =》 数字
+    *   布尔 =》 数字
+    *
+    * */
+
+    console.log(1 == 2);//false
+    console.log(1 == '1'); //true
+    console.log(1 == true); //true
+    console.log(1 == null) ; // false
+    console.log(1 == undefined) ; // false
+    console.log(null === undefined) ; // false
+    console.log( [] == '1') ; //
+
+//    对象和字符串
+
+    console.log({} == 1);
+    console.log([] == 0); //true
+    console.log([1] == 1); //true
+
+    // 对象 和布尔
+    console.log([]==false) // true'' 0= 0
+    console.log(![]==false) //  true
+    console.log([]==!false) //  false
+
+    //  字符串和布尔
+    console.log('1' == false) // 1==0 false
+    console.log('[]'== true) //false
+    console.log(!'{}'== true)//false
+
+    //  对象和数字
+    console.log([1] == 1) //true
+    console.log(!null == [1])// true
+
+    //  对象和对象
+    console.log([1,2] == true)//false
+    console.log(![1,2] == true)//false
+    console.log(!NaN== [true] )// false
+
+    console.log(null == undefined )
+    // null和undefined 一般比较是true 严格比较是false ,null和undefined 相比较 都是false
+
+    console.log([1,2] == null)// false
+    console.log(![1,2] == undefined)// false
+    console.log(!NaN== [null] )//  false
+
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var ary = [1,1,2,2,2,3,4,7,5,5,3,3,3]
+
+    // 排序法
+    function sortAry (ary){
+        ary.sort(function (a,b) {
+            return a-b
+        })
+        for(var i=0;i<ary.length;i++){
+            if(ary[i]== ary[i+1]){
+                ary.splice(i,1)
+                i--
+            }
+        }
+        return ary
+    }
+    //console.log(sortAry(ary));
+
+    // indexOf includes
+    function indexArr(ary) {
+        var newArr = [];
+        for (var i=0;i<ary.length;i++){
+            if(newArr.indexOf(ary[i])==-1){
+                newArr[newArr.length]=ary[i]
+            }
+        }
+        return newArr
+    }
+    //console.log(indexArr(ary));
+
+    // 双循环 , 对象是不重名的属性名原理
+    function forTwo (ary){
+        var obj = {},newAry=[];
+        //1,1,2,2,2,3,4,7,5,5,3,3,3
+        for(var key in ary){
+            obj[ary[key]] = ary[key] // {1:1}
+        }
+        for(var i in obj){
+            newAry.push(obj[i])
+            newAry.push(Number(i))
+        }
+        return newAry
+    }
+
+    //console.log(forTwo(ary));
+
+    //console.log([...new Set(ary)]);
+
+
+</script>
