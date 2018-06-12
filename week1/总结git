@@ -1,0 +1,17 @@
+
+// 我自己上传文件
+1. 桌面创建一个文件夹
+2. git init 让这个文件夹变成一个git仓库
+3. git config --global user.name '名字' // 提交的名字
+4. git config --global user.email '邮箱' //
+5. 本地仓库绑定远程仓库地址 ：git remote add origin (url地址)
+... 在当前文件夹下添加js文件
+6. git add . // .全部 -A 全部 .文件名 =》将文件提交到暂存区
+7. git commit -m"提交的信息" //将文件提交到历史区
+8. git push origin master // 将文件推送到master 分支
+
+// 克隆老师的课件
+11. 在你的桌面右键git bash 打开dos窗口【看一下路径】
+12. git clone （url地址）
+13. 进去到这个文件夹中
+14. git pull origin master / git pull
