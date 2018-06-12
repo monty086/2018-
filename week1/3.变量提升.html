@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    /*
+    * 变量提升：变量的提前声明
+    * 作用域形成之后，代码加载之前，对带var和带function关键字的进行提前声明和定义，带var的只声明，不定义，带function的声明加定义
+    *  js能在浏览器中运行，是因为浏览器给js提供了一个赖以生存的环境，这个环境叫做作用域
+    * 作用域分为全局作用域和私有作用域
+    * 全局作用域：页面一打开就形成了一个全局作用域，形成全局对象window
+    * */
+
+    console.log(a); //undefined
+    var a = 1;
+    fn()
+    console.log(a) //1
+    function fn(){
+        console.log(1);
+    }
+
+    var obj = {name:'zhufeng'};
+    var obj1 = obj;
+    obj1.name='niu';
+    console.log(obj)//
+
+
+    /*
+    * 引用数据类型：对象数据类型，函数
+    * 基本数据类型操作的值，引用数据类型操作的是引用地址
+    *
+    * */
+
+    f1();
+    var b=1;
+    function f1() {
+        b++;
+        console.log(b); //2 2 undefined 2 NaN
+    }
+    console.log(b);//2 1  2 1 1 1
+
+</script>
