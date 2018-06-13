@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 作用域链
+    * 私有变量：当前私有作用域下声明的变量、形参
+    * 作用域链：再当前的作用域下遇到一个变量，优先找当前作用域下的私有变量，如果当前作用域没有这个私有变量，就向它的上级进行查找，【上级：当前作用域在那定义的，和在哪执行的没有任何关系】，如果有这个变量，就取这个变量，如果没有，继续向上级进行查找，一直找到window，如果window还没有，就直接报错
+    * */
+    // var a =2 ;
+    // function fn(){
+    //     console.log(a);//undefined
+    //     var a =1
+    //     function fn2(){
+    //         // a
+    //         console.log(a);// 1
+    //     }
+    //     fn2()
+    // }
+    // fn()
+
+    var a =1
+    function fn() {
+        var a =2
+        var f2 = f //报错 不报错
+        f2()
+    }
+    function f() {
+        console.log(a);// 1 1
+    }
+    fn()
+    //? ？
+
+
+</script>
