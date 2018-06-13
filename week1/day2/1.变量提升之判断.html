@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 判断条件下的变量提升：
+    * 在判断体中声明声明的变量和函数，都会进行变量提升
+    * 条件不成立： 拿到的变量和函数都是只申明的状态
+    * 条件成立：判断条件成立，进入到判断体中第一时间给函数进行定义
+    *
+    * */
+    console.log(a); // undefined
+    console.log(fn); // undefined
+    console.log(fn1); // undefined
+    if(true){
+       console.log(fn1());//
+       var a =1 ;
+       var fn = function(){}; //
+        // fn()
+       function fn1(){return 1}
+       let fn4 = ()=>{}
+       fn4()
+    }
+</script>

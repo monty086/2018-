@@ -16,6 +16,16 @@
     * */
     //console.log(fn)// fn is not defined
     (function fn(){})()
+    ~function (){}()
+    (function(){}())
+
+    var obj={
+        a:(function(){
+            var a =1
+            return 1
+        })()
+    }
+    console.log(obj.a);
 
     //console.log(fn2); //fn2 is not defined
     setInterval(function fn2(){},1000)

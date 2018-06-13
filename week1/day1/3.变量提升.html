@@ -17,7 +17,7 @@
     * 作用域分为全局作用域和私有作用域
     * 全局作用域：页面一打开就形成了一个全局作用域，形成全局对象window
     * */
-
+    console.log(fn());
     console.log(a); //undefined
     var a = 1;
     fn()
@@ -37,6 +37,11 @@
     * 基本数据类型操作的值，引用数据类型操作的是引用地址
     *
     * */
+    var a =1
+    b=a
+    b=2
+    console.log(a);
+
 
     f1();
     //var b=1;

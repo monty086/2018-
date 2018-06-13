@@ -16,7 +16,7 @@
     * */
 
     //console.log(b) //
-    b =1 // window.b
+    b =1 // window.b=1
     console.log(b);//1
     console.log(window.b) //1
 
@@ -31,8 +31,11 @@
     console.log('b' in window);
 
     //console.log(a, b, c); //undefined
-    var a = b =c =1 ; // a  window.b window.c window.a
+    var a = b = c =1 ; // a  window.b window.c window.a
     console.log(b, c); // 1
+
+    var a=1, b=2, c=3;
+    var a =1 ;var b =2 ; var c =3 ;
 
     console.log(x) // undefined
     var x =1
@@ -48,6 +51,8 @@
     var a =b =c='b' // window.a='b' window.b ='b' window.c='b'
     console.log(b); // window.b='b'
     //console.log(window.b); // 'b'
+
+    // in 判断 一个属性是否在一个对象上面
     if( b in window){  // window.b = 'b'
         console.log(b in window); //true
         console.log(b) // window.b 'b'

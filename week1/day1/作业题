@@ -11,10 +11,9 @@
 
 //2
   function f1() {
-    console.log(a);
+    console.log(a); // f()
     var a = 1;
     return a;
-
     function a() {
     }
   }
@@ -40,6 +39,8 @@
     }
     fn();
     console.log(a);
+
+----
 //5
     console.log(a);
     var a = 13;

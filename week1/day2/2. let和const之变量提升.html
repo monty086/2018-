@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * let   声明一个变量
+    * 1. 没有变量提升
+    * 2. 使用let来声明变量不会给全局对象window添加属性
+    * 3. let声明的变量不可以进行重复声明
+    * const  声明一个常量
+    * 1. let声明变量的条件，const同样具有
+    * 2. 使用const声明的变量必须得赋值
+    * 3. 使用const声明的变量如果是基本数据类型，不可以重复赋值，如果引用数据类型，不改变地址可以进行修改值，不可以对引用数据类型重新赋值
+    * */
+
+    //console.log(a);// a is not defined
+    let a = 1;
+    console.log(a); // 1
+
+    //console.log(b)//b is not defined
+    b = 2 ;
+    var c =2
+    console.log(window.b,window.c)//window.b
+
+    let d = 3 //{}
+    console.log(window.d);//3
+
+    var e = 1;
+    var e = 2 ;
+    console.log(e);// 2
+
+    let f = 1;
+    //let f = 2;  // Identifier 'f' has already been declared
+    console.log(f)
+
+    console.log(g);// undefined
+    var g ;
+    console.log(g);// undefined
+
+    // const h ;
+    // console.log(h)
+
+    //const i= 1;
+    //i=2;
+
+    const i = [1,2,4];
+    i[0]= 999;
+    console.log(i);// [999,2,4]
+
+    const j = [1,2];
+    //j=[4,5];
+    console.log(j);
+
+
+    // console.log(a);
+    // a();
+    // let a = 1;//let 和const定义变量虽然不进行变量提声但是在提声阶段浏览器会看一下是否有不合法和报错的情况
+    // function a() {
+    //     console.log(1);
+    // }
+    // a();
+
+    /*
+    * 暂时性死区
+    *
+    *
+    * */
+
+    if(!('a' in window)){
+        console.log(a) //
+        let a = 1
+    }
+
+</script>

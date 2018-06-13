@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 作用域：
+    * 1. 作用域除了分为全局作用域，还分为私有作用域
+    * 私有作用域：当函数执行的时候才会形成一个私有的作用域
+    * 函数定义的时候：浏览器为其开辟一个新的内存空间，为其分配一个16进制的内存地址，将函数中的代码字符串存入到内存空间中，再将这个内存地址赋值给函数的变量名
+    *
+    * 私有变量：再私有作用域形成的变量，就叫私有变量
+    * 公有变量：全局作用域下声明的变量，叫做公有变量
+    *
+    * 注意： 私有变量除了私有作用域中声明的变量，形参也属于私有变量
+    * */
+
+    var a =b =c=1
+    function fn(c) {//1
+        console.log(c)
+        c=4
+        var c = 5
+        console.log(c); //5
+        console.log(a);
+    }
+    fn(c)
+
+    /*
+    * 函数的执行步骤：
+    * 1. 函数执行的时候会形成一个私有的作用域
+    * 2. 形参赋值
+    * 3. 变量提升
+    * 4. 代码从上到下执行
+    * 5. 判断此作用域是否销毁，一般情况下执行结束立即销毁
+    *
+    *
+    * */
+
+    var s="1";
+    var g=10;
+    function fn1(g) {
+        s+=2;
+        g++;
+        console.log(g);// 11
+    }
+    fn1(g);
+    console.log(s); // ’12‘
+    console.log(g); // 10
+
+
+    var aa=100;
+    var bb=200;
+    function fn2(aa) {
+        console.log(bb);// undefined
+        var bb=1;
+        aa=2;
+        console.log(bb + aa);// 3
+    }
+    fn2(bb);
+    console.log(aa + bb);// ? 300 202
+</script>
