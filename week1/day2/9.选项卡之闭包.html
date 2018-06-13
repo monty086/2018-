@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="按钮1">
+<input type="button" value="按钮2">
+<input type="button" value="按钮3">
+</body>
+</html>
+<script>
+    // 元素集合 类数组
+    var inputs = document.getElementsByTagName('input')
+    for(let i=0;i<3;i++){
+
+        inputs[i].onclick=function () {
+           alert(i+1)
+        }
+
+        // inputs[i].index = i;
+        // inputs[i].onclick=function () {
+        //     alert(this.index+1)
+        // }
+
+        // (function (a){
+        //     //a 0 1 2
+        //     inputs[a].onclick=function () {
+        //         alert(a+1)
+        //     }
+        // })(i)
+
+
+            // i  // 形参和声明的变量
+            // return f
+            // window.a =f
+
+        // inputs[i].onclick= (function (a){ // 不销毁的作用域
+        //     // a 不销毁的变量
+        //     return function () {
+        //         alert(a+1)
+        //     }
+        // })()
+
+
+
+
+    }
+</script>

@@ -1,0 +1,20 @@
+
+
+闭包的小作业：
+有一个函数fn ，有一个变量a ，我让fn每一次执行，b都持续的累加;
+用闭包的形式来实现
+fn() // b => 1
+fn() // b => 2
+...
+
+
+把做题的题画图讲
+this题讲
+面向对象
+单例模式
+构造函数模式
+原型模式
+原型链
+hasOwnProperty 自己封装一个hasPubProperty
+constructor
+instanceof

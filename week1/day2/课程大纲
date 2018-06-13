@@ -1,2 +1,6 @@
 
 变量提升
+强行拉取代码
+git fetch --all
+git reset --hard origin
+git pull origin master
