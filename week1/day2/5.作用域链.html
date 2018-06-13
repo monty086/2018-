@@ -26,17 +26,31 @@
     // }
     // fn()
 
-    var a =1
-    function fn() {
-        var a =2
-        var f2 = f //报错 不报错
-        f2()
-    }
-    function f() {
-        console.log(a);// 1 1
-    }
-    fn()
+    // var a =1
+    // function fn() {
+    //     var a =2
+    //     var f2 = f //报错 不报错
+    //     f2()
+    // }
+    // function f() {
+    //     console.log(a);// 1 1
+    // }
+    // fn()
     //? ？
+
+    var a = 5;
+    function fn(){
+        var a =10 ;
+        function f(){
+            a++;
+            console.log(a)  }
+        f();
+        return f
+    }
+    var fn1 = fn();
+    fn1()
+    //fn1() ;
+    console.log(a);
 
 
 </script>
