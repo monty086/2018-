@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 块级作用域
+    * 块级作用域和var和function进行结合的时候，外面得到声明的undefined，条件成立以后，第一时间给函数赋值
+    * 块级作用域和let结合的时候，let声明的变量会在这个块级作用内变成一个私有变量，外界获取不到
+    * 块级作用域下，var和function声明的变量不能重名
+    * */
+
+    // if(){}
+    // for(){}
+    // switch (){}
+    // {}
+    // console.log(a);
+    // console.log(fn); //undefined
+    //fn()//
+    if(true){
+        // 第一时间给函数赋值
+        //fn()
+        //var a =`1`
+        //function fn(){}
+    }
+
+    if(true){
+        let b =1
+        console.log(b);
+    }
+
+    {
+        let c =2
+    }
+    // console.log(c);
+    // console.log(b);
+    {
+        //var fn =1
+        //var fn =2
+        // function fn(){
+        //
+        // }
+    }
+    console.log(fn);
+</script>
