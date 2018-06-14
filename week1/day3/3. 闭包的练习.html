@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // function fn(){
+    //     var a =1
+    //     return function (){
+    //         a++
+    //         console.log(a)
+    //     }
+    // }
+    // var f = fn()
+    // f()
+
+    // (function (){
+    //     var a =1
+    //     function fn(){
+    //         a++
+    //         console.log(a)
+    //     }
+    //     window.fn=fn
+    // })()
+    // fn()
+
+    // var fn = (function (){
+    //     var a =1
+    //     return function fn(){
+    //         a++
+    //         console.log(a)
+    //     }
+    // })()
+    // fn()
+
+    var obj = {
+        a:1,
+        b:function(){
+            this.a++;
+            console.log(this.a);
+        }
+    }
+    obj.b()
+
+    (function(){
+    }())
+
+</script>

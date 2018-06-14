@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    /*
+    * this : 执行的主体，（谁执行这个函数，谁就是主体，this就是谁）
+    * 1. 自执行函数this永远是window
+    * 2. 函数当作参数的时候，this一般情况下都是window
+    * 3. 函数执行，看执行主体前面是否有点，如果没有.，this是window
+    * 如果前面有点，点前面是谁就是谁
+    * 4. 全局作用域中this一般都是window
+    * 5. 元素触发事件，事件中的this就是 元素本身
+    * 6. 构造函数中的this都是实例
+    * 7. 通过call apply bind改变this，this就是改变的对象
+    * */
+    (function(){
+        console.log(this); //window
+    })()
+    setTimeout(function () {
+        console.log(this);
+    },10)
+
+    function fn(){
+        console.log(this);}
+    fn()//window.fn()
+
+    var obj = {
+        a:function(){
+            console.log(this);}
+    }
+    obj.a()
+
+    box.onclick=function () {
+        console.log(this);
+    }
+
+    function fn(){}
+    fn()//return undefined
+    function Fn(){}
+    var f = new Fn() // Fn这个构造函数的一个实例，是一个对象，构造函数中的this都是这个历史
+    f// {}
+
+</script>

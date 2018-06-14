@@ -2,12 +2,12 @@
 遇到报错自动忽略
 
 //1.
-console.log(getA);
-if("a" in window){
-    var a="";
-    function getA(a) {
-        a=a||this.a;
-        console.log(this.a);
+console.log(getA); //undefined
+if("a" in window){ // true // getA=f()
+    var a="1";
+    function getA(a) { //
+        a=a||this.a; //
+        console.log(a);//'1'
     }
     getA(a);
 }
@@ -35,16 +35,23 @@ fn1();
 
 var ary=[1,2,3,4];
 ary.forEach(function(item,index){
+// index 索引 0 ，1，2，3
+// ary=[1,2,3,4]
+//ary[0]=window
+//ary[1]=window
+//ary[2]=window
+//ary[3]=window
+//[window,window,window,window]
     ary[index]=this;
 });
-console.log(ary);
+console.log(ary);[w,w,w,w]
 
 //4.
 var b="b";
 var obj2={
-    b:"B",
-    getB:function (b) {
-        this.b=b+this.b;
+    b:"B",//'是B'
+    getB:function (b) {//'是'
+        this.b=b+this.b;// '是'+'B'
         return this.b
     }
 };
@@ -84,6 +91,8 @@ var f3=obj3.getC;
 f3();
 console.log(window.c);
 console.log(obj3.c);
+
+---
 
 //7.
 function g1() {
