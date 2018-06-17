@@ -81,7 +81,7 @@ var f1=new FF;
 var f2=new FF;
 console.log(f1.__proto__ == FF.prototype);
 
-console.log(FF.prototype.__proto__==Object.prototype);//true
+console.log(FF.prototype.__proto__==Object.prototype);
 
 console.log(FF.prototype.constructor==FF);
 
