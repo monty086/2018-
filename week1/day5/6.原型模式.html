@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 原型模式：prototype【原型】
+    * 所有的类【自定义类和内置类】都是函数数据类型
+    *
+    * 所有的类天生自带一个属性，叫做prototype，它是一个对象，浏览器为默认为其开辟一个堆内存
+    * 这个prototype属性天生自带一个属性叫做constructor，它指向了当前类本身【属性值是当前的类】
+    *
+    * 所有的对象都天生自带一个属性叫做__proto__,指向的是当前所属类的原型【如果不确定它是哪个类的，都指向基类Object】
+    * */
+
+    function Fn(){
+        this.name='大猫';
+        this.age='8';
+        this.say = function () {
+            console.log('我不是大猫')
+        }
+    };
+    console.dir(Fn)
+
+    console.log(Fn == Fn.prototype.constructor);
+    var f = new Fn()//f是对象
+    console.log(f);
+    f.__proto__//
+    console.log(f.__proto__ == Fn.prototype);
+    var f2 = new Fn()//f2 是一个对象
+
+    console.log(f == f2);
+    console.log(f.name == f2.name);//'大猫'=='大猫'
+    console.log(f.constructor == f2.constructor);
+
+</script>

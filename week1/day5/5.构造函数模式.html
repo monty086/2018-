@@ -99,10 +99,21 @@
     console.log(cat.hasOwnProperty('makeSound'));// false
     console.log(cat.hasOwnProperty('toString')); // false
     // 封装一个公有属性的方法，实现返回值true和false
-    cat.__proto__.hasPubProperty=function () {
-
+    cat.__proto__.hasPubProperty=function (key) {
+        if(key in this){// 判断是否是公有属性+私有属性
+            if(this.hasOwnProperty(key)){ // 判断是否是我的私有属性，条件成立，证明是我的私有属性，
+                return false
+            }else{
+                // 证明不是我是私有属性
+                return true // 不是私有证明必然是公有，返回一个true
+            }
+        }else{
+            return false
+        }
+     return  key in this && !this.hasOwnProperty(key)
     }
-    cat.hasPubProperty('toString')// true
-    cat.hasPubProperty('name')// false
+    // cat是一个对象{name:'tom'}
+    console.log(cat.hasPubProperty('toString'));// true
+    console.log(cat.hasPubProperty('xxx'));// false
 
 </script>
