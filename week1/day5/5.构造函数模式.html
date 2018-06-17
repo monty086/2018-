@@ -16,6 +16,8 @@
     * 构造函数我们一般在组件、插件、库、框架封装的时候，会用到构造函数，其余我们在写业务代码逻辑的时候，一般不常用
     *
     * 注意：如果构造函数没有参数的情况下，我们可以默认不写小括号
+    *
+    * 在构造函数当中，给this赋值的属性，都属于实例的私有属性
     * */
     new Number()
     function fn(){
@@ -61,13 +63,46 @@
     }
     var cat = new Animal('tom','喵喵')
     console.log(cat);
+
     // 所有的实例都是对象数据类型
     // 所有的类都是函数数据类型
-
     //instanceof // 判断当前实例是否属于这个类
+    /*
+    * instanceof 用来检测引用数据类型，尤其是对象数据类型中的细分。但是它不能检测字面量创建的基本数据类型
+    *
+    * */
+    // typeof // 检测基本数据类型
+    // typeof null // Object
+    // typeof Array
     console.log(cat instanceof Animal);
-    console.log(cat instanceof Object);
+    console.log(cat instanceof Object);//true
     console.log(cat instanceof Function);
+    var num = new Number(1)
+    console.log(num instanceof Number);
+    function fn(){}
+    console.log(fn instanceof Function);//
+    console.log([] instanceof Array);//
 
+    // 实例cat是一个对象{name: "tom", todoList: "喵喵"}
+
+    //检测一个对象中是否有某一个属性
+    // in 通过这种方式来检测是否这个对象的属性，检测的私有属性+公有属性
+    console.log('name' in cat); //true  私有属性
+    console.log('constructor' in cat); //true  公有属性
+    console.log('toString' in cat); //true  公有属性
+    // console.log(Animal.name == cat.name); //
+
+    //hasOwnProperty
+    // 只能检测当前属性是否是这个对象的私有属性
+    console.log(cat.hasOwnProperty('name')); //true
+    console.log(cat.hasOwnProperty('constructor'));// false
+    console.log(cat.hasOwnProperty('makeSound'));// false
+    console.log(cat.hasOwnProperty('toString')); // false
+    // 封装一个公有属性的方法，实现返回值true和false
+    cat.__proto__.hasPubProperty=function () {
+
+    }
+    cat.hasPubProperty('toString')// true
+    cat.hasPubProperty('name')// false
 
 </script>
