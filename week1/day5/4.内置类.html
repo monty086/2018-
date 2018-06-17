@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div></div>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>
+<script>
+    /*
+    * 内置类
+    * 所有的数据类型都有它所属的类，Null和Undefined 不是
+    * js中万物皆对象，
+    * 所有的对象都可以通过__proto__【原型链】找到基类Object
+    * js中的内置类
+    * Number String Boolean Object Array RegExp Function Date  Set Map ...
+    * 标签类：每一个标签都有它所属的类
+    *
+    * */
+
+    var lis = document.getElementsByTagName('li');
+    var ul = document.getElementsByTagName('ul')[0]
+    var div = document.getElementsByTagName('div')[0];
+
+    var num1 = 3;// 字面量
+    var num2 = new Number(3) // 实例化创建，返回的实例是一个对象
+    var boo = new Boolean(true)
+    var boo = new String('123')
+    //var boo = new Null(null)
+
+    var obj = new Object({name:'zhufeng'})
+    var ary = new Array(9,1)
+    var ary = new Array('9')
+    var reg = new RegExp('^$')
+    var fn = new Function('a','b','c','a++;return a')(2,3,4)
+    // 通过实例化创建的 函数，参数除了最后是函数体以外，其他的参数都是形参，我可以在后面加一个括号，让其变成立刻执行的函数
+
+    console.log(fn);//[9]
+
+</script>
