@@ -37,4 +37,37 @@
     *
     * */
 
+    /*
+    * 构造函数的执行步骤
+    * 1. 开辟一个私有的作用域
+    * 2. 形参赋值
+    * 3. 变量提升
+    * 4. 浏览器创建一个对象，这个对象就是this【浏览器会开辟一个堆内存，将堆内存的指针指向了this】
+    * 5. 代码从上到下执行
+    * 6. 不写return，浏览器会自动将this返回【return this】，写了return ，如果return后面是基本数据类型，对实例没有影响，如果是引用数据类型，对实例有影响【引用数据类型是什么，return什么】；return的这个值就是我们的实例
+    *
+    * */
+    function Animal(name,todo){
+        var newName = '佩奇'
+        function todoList() {
+            console.log(todo)
+        }
+        this.name = name;
+        this.todoList = todo;
+        // return 'haha'
+        // return {name:'haha'}
+        // 这个this就是当前构造函数的一个实例，同时它又是一个对象
+        // return this
+    }
+    var cat = new Animal('tom','喵喵')
+    console.log(cat);
+    // 所有的实例都是对象数据类型
+    // 所有的类都是函数数据类型
+
+    //instanceof // 判断当前实例是否属于这个类
+    console.log(cat instanceof Animal);
+    console.log(cat instanceof Object);
+    console.log(cat instanceof Function);
+
+
 </script>
