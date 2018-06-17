@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 单例模式
+    * 模块化开发：将一个项目分成不同的功能，交给不同的项目成员进行开发；
+    * 项目合并的时候势必会造成变量的冲突和污染，使用闭包的方式来避免变量的冲突和污染，仅仅使用闭包的方式是不完美的，我们需要搭配设计模式来完成我们的开发
+    *  单例模式：本质就是一个对象，将一个项目中具有相同属性和功能放到一个对象当中，叫做单例模式，单例模式又名命名空间
+    *
+    *
+    *
+    * */
+
+    var student1 = {
+        name:'cat',
+        makeSound:function(){
+            alert('喵喵')
+            console.log(this.name)
+        }
+    }
+    student1.makeSound()
+    var student2 = {
+        name:'dog',
+        makeSound:function () {
+            alert('旺旺')
+        }
+    }
+</script>
