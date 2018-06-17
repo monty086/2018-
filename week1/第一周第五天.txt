@@ -1,0 +1,90 @@
+1.var ary = [1, 2, 3, 4];
+function ff(ary) {
+    ary[0] = 0;
+    ary = [0];
+    ary[0] = 100;
+    return ary
+}
+var s = ff(ary);
+console.log(ary);____________
+console.log(s);______________
+
+2.var a = 10, b = 11, c = 12;
+function test(a) {
+    a = 1;
+    var b = 2;
+    c = 3;
+}
+test(10);
+console.log(a);___10_________
+console.log(b);___11_________
+console.log(c);____3________
+
+3.console.log(f1);__undefined___
+if("a1" in window){
+    f1();
+    var a1=1;
+    function f1() {
+        a1++;
+        console.log(a1);__NaN____
+    };
+}
+
+
+4.
+var n=10;
+var obj1={
+    n:1,
+    f:function () {       
+        this.n++;
+        n=this.n++;
+    }
+};
+obj1.f();
+console.log(n);_____________
+console.log(obj1.n);____________
+
+5.
+var aa=20;
+function bind() {
+console.log(this);_______
+    var aa=12;
+    function fn() {
+        console.log(this.aa);_____
+    }
+    box.onclick=function () {
+        console.log(this);_____
+        fn();
+    };
+}
+bind()
+
+6.
+var a=0;
+function FF() {
+    this.a=1;
+    a++;
+    return a;
+}
+var f1=FF();
+console.log(f1,a);___________
+var f2=new FF();
+console.log(f2);_________
+console.log(a);__________
+
+7
+function FF() {
+    this.x=1;
+}
+FF.prototype.getX=function () {};
+var f1=new FF;
+var f2=new FF;
+console.log(f1.__proto__ == FF.prototype);
+
+console.log(FF.prototype.__proto__==Object.prototype);//true
+
+console.log(FF.prototype.constructor==FF);
+
+console.log(Object.prototype.__proto__);
+
+console.log(f1.getX==f2.getX);
