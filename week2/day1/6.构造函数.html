@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function Fn(){
+       var name = 'zhufeng';
+       this.name = 'china';
+       this.say = function () {
+           console.log('name')
+       }
+    }
+    //console.dir(Fn)
+
+    //var f1 = new Fn
+    // console.log(f.say == f1.say);
+    // console.log(f)
+    // Fn.prototype={
+    //      constructor:Fn
+    //         name:
+    //         say:
+    // }
+    //var f = new Fn
+    //console.log(f.constructor);
+
+    Fn.prototype.name='珠峰培训'
+    Fn.prototype.say='你很棒'
+    Fn.prototype// 对象=》堆内存=》引用地址
+    // 进行替换，=》地址替换=》所有堆内存内容全部消失
+    //var f = new Fn
+    Fn.prototype ={
+        //
+        name:'珠峰培训',
+        say:'你很棒'
+        //__proto__=>Object.prototype=>constructor
+    }
+    var f = new Fn
+    console.log(f.constructor);
+    //var f = new Fn
+    // console.log(f.constructor == f1.constructor); // true
+    console.log(f.constructor == Fn.prototype.constructor); //
+    //console.log(f.constructor);
+    /*
+    * 每一个实例都是一个对象，每一个对象上天生自带一个属性叫做__proto__,这个属性指向，当前实例所属类的原型
+    *
+    * */
+    console.log(f.__proto__ == Fn.prototype);
+    Fn.prototype.getX = function () {
+        console.log(this.name)
+    }
+    Fn.prototype.name = 'zfpx'
+    //console.log(f.name);// china
+    //console.log(f.getX);// china
+    console.dir(new Boolean(true))
+
+    var  obj = {};
+    console.log(obj.a);//undefined
+
+</script>

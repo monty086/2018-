@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box"></div>
+    <p id="p"></p>
+</body>
+</html>
+<script>
+    // var p = document.createElement('p');
+    //box.innerHTML='<p></p>'
+
+    //arguments映射
+    /*
+    var a= 1;
+    (function(a){
+        console.log(arguments);//[1]
+        //a=2
+        a=3
+        //arguments[0]=2
+        console.log(arguments)//[3]
+    })(a)
+    */
+// a=undefined
+    var a = {name:1,fn:b};
+    // 自执行函数再执行到它的时候，声明+定义+执行=结束
+    var b = (function(a){
+        console.log(a)
+        //return a
+    })(a.name)
+
+    function Fn() {
+
+    }
+    Fn.prototype={}
+    var f = new Fn;
+    console.log(f.constructor);
+
+
+</script>

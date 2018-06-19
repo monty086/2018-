@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 高级单例模式
+    * 本质是自运行函数，返回一个对象，想要什么功能，就写的功能放到返回的对象中
+    *
+    * */
+    var person1 = (function(){
+        var name="zhufeng";
+        function todo() {
+            console.log(name)
+            return this
+        }
+        return {
+            name,
+            todo
+        }
+    })()
+    person1.todo().name
+    // 如果我们想要通过单例模式实现连续调用，关键步骤return this
+</script>

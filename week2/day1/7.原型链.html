@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //__proto__
+    /*
+    * 原型链：
+    * 也是一种查找机制：当实例找一个属性的时候，先看自身有无此私有属性，如果没有，就到实例所属类的原型上，继续找有无次属性，如果没有继续向上找，直到找到Object的原型上，如果还没有直接undefined
+    *
+    * */
+
+    var ary = [1,2];
+    var ary1 = [5,6]
+    console.log(ary.__proto__);//
+    console.log(ary instanceof Array);//
+</script>

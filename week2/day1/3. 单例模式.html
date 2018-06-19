@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 单例模式：把描述同一功能的属性和方法放到一个命名空间下
+    * 命名空间就是一个对象{}
+    *
+    * */
+    var person1 = {
+        name:'阿黄',
+        say:'你很棒'
+    }
+    var person2 = {
+        name:'小黑',
+        say:function (){
+            console.log(this.name);
+        }
+    }
+    person2.say()
+
+    // 工厂模式
+    function fn(name){
+        //var name = 'zhufeng';
+        var obj = {};
+        obj.name = name
+        return obj
+    }
+    console.log(fn('zhufeng'));// {name:'zhufeng'}
+    console.log(fn('china'));// {name:'china'}
+
+</script>

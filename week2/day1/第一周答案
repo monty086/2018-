@@ -1,0 +1,29 @@
+一
+1. sort(function(a,b){return b-a})
+2. pop  ary.length--  ary.splice(ary.length-1,1)
+3. ary.slice(n,m)
+4. document.documentElement.clientWidth || document.body.clientWidth
+5. innerHTML appendChild insertBefore
+6. previousElementSibling while=>nodeType==1
+7. Math.round(Math.random()*(m-n)+n)
+8. replace(旧,新)
+9.  document.getElementById('tab')
+    document.getElementsByTagName('div')[0]
+    document.getElementsByClassName('tabCon')[0]
+10. true true
+11. let div = document.createElement('div');
+    document.body.appendChild(div)
+    let newDiv = div.cloneNode(true);
+    document.body.insertBefore(newDiv,div);
+12. Number() parseInt() parseFloat()
+13. ary.slice(0) ary.splice(0) ary.concat()
+
+二：
+1. undefined undefined
+2. '珠峰' 5000  '珠峰' undefined
+3. {age:5000} {name:'中国',age:7}
+4. 15 33 48 100
+5. 4 5 14 22
+6. true 20 NaN Object函数
+
+三：

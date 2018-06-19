@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function fn(){
+        //console.log(arguments)
+        //arguments.__proto__= Array.prototype;
+        // ie不兼容
+        // console.log(arguments)
+        // arguments.pop()
+        // console.log(arguments);
+    }
+    fn(1,2)
+
+    // es6中的函数
+    let ary = (...ary)=>{
+        console.log(ary)
+        console.log(arguments);//arguments is not defined
+    }
+    ary(1,2)
+
+</script>
