@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 函数的三种身份
+    * 1. 普通函数
+    * 2. 类【自定义类和内置类】
+    * 3. 函数类的一个实例
+    * */
+    // 函数类上的公有方法和属性，任何函数都可以进行调用
+
+    // caller 谁调用当前函数，caller就是指的谁，如果再全局作用域下调用的话，caller指的是null
+    function fn(a,b){
+        //console.log(fn.caller);
+    }
+    fn()
+    // function f(){
+    //     fn()
+    // }
+    // f()
+    //console.dir(fn)
+    // function Array(){
+    //
+    // }
+    // arguments.callee 这个属性表示当前的这个函数
+    function fn1 (){
+        console.dir(arguments);//[1,2,3]
+        console.log(arguments.callee);//
+    }
+    fn1(1,2,3)
+
+</script>

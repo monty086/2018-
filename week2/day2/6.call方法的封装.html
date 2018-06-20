@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 1. 让call方法前面的函数执行
+    * 2. 将call的第一个参数用来改变前面函数中的this
+    * 3. 将call的第二个及第二个以后的参数，依次传入到call前面函数中当作参数
+    *
+    * */
+    Function.prototype.mycall=function () {
+        //'use strict'
+        // 如果不穿参数，fn依然执行，this
+        // 1. 穿了一个undefined
+        // 2. 不传
+        // 3. null
+        var ary = []
+        for(var i=1;i<arguments.length;i++){
+            //ary.push(arguments[i])
+            //ary[ary.length]=arguments[i]
+            ary[i-1]=arguments[i]
+        }
+        console.log(ary);
+        if(arguments[0]==undefined){
+            var _this = this
+            // 'this(12,3,4)'
+            // [12,3,4].toString()
+            //eval('this('+ary.toString()+')')
+             eval('this('+ary+')')
+        }else{
+            var obj = arguments[0]
+            //this=》 fn里的this变成cur
+            //obj=>{}
+            //obj= Object(obj)
+            obj.__proto__.fn = this//fn // obj=>{fn:fn}//this=>obj.fn()
+            eval('obj.fn('+ary+')')//this=>obj
+            delete obj.__proto__.fn
+        }
+    }
+    function fn(a,b) {
+        console.log(this);//{}
+        console.log(a + b);// [12,3,4]+undefined
+    }
+    // fn.mycall()
+    // fn.mycall(null,12,3,4)
+    // fn.mycall(undefined,12,3,4);
+    var obj = 1//fn:fn // obj.fn()
+    fn.mycall(obj,1,2,4)
+
+    Object.prototype.toString.call(1) //[object Number]
+    ({}).toString()// [object Object]
+    (5).toString()// '5'
+</script>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var  ary = [1,2];
+    ary.push(3,4,5,6,function(){})
+    console.dir(ary)//[1,2,3]
+    // 再数组的原型上封装一个push方法
+    // 是否传参，怎么参
+    Array.prototype.mypush=function (ary) {
+        console.log(ary);//5
+        // arguments 实参的集合
+        console.log(arguments);
+        // 拿到ary
+        // this
+        for (var i=0;i<arguments.length;i++){
+            this[this.length]=arguments[i]
+        }
+        return this.length
+    }
+
+    // console.log(ary2);
+    // console.log(ary.mypush(5, 4, 3, 1));
+    // console.log(ary);
+    // eval 字符串转js代码
+    Array.prototype.mypush2=function () {
+        var str = this.toString()
+        for(var i=0;i<arguments.length;i++){
+            str+=','+arguments[i]
+        }
+        var ary = eval('['+str+']')
+        console.log(ary);
+        //this=ary
+        for(var i=0;i<ary.length;i++){
+            this[i]=ary[i]
+        }
+        return this.length
+    }
+    var ary2=['1','4']
+    console.log(ary2.mypush2(3, 4));
+    // ... 剩余运算符 解构赋值
+    var [b,...ary] = [5,4,3,2,1]
+    console.log(b);
+    console.log(ary);
+
+    Array.prototype.mypush3 = function () {
+        var newAry = [...this,...arguments]
+        console.log(newAry);
+        // 原数组改变
+        for(var i=0;i<newAry.length;i++){
+            this[i]=newAry[i]
+        }
+        // 返回值是新数组的长度
+        return this.length
+    }
+    var ary2=['1','zhufeng']
+    console.log(ary2.mypush3(3, 4));//
+    console.log(ary2);
+
+    Array.prototype.mypop=function () {
+        // 1. 删除最后一项
+        // 2. 返回删除的那一项
+        // 3. 原数组改变
+        // this // ary3
+        var num = this[this.length-1]
+        this.length--
+        return num
+    }
+    var ary3 = [2,'3aabbcc'];
+    console.log(ary3.mypop());
+    console.log(ary3);
+
+
+</script>

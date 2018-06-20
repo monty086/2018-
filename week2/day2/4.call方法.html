@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+        call方法
+    * 函数类上所有的公有方法和属性，作为一个函数都可以进行调用
+    *
+    * */
+
+
+    // console.dir(fn)
+    // fn.call()
+
+    /*
+    * call方法
+    * 1. call方法让call前面的这个函数执行
+    * 2. 第一个参数改变call方法前面函数中的this
+    * 3. 第二个及第二个以后的参数都是给call前面函数传参
+    *
+    * 主要是用来改this
+    * 如果第一个参数是基本数据类型，this就会被实例化输出,如果是引用数据类型，就没有关系
+    * */
+    var fn = function (n,m) {
+        //'use strict'
+        console.log(this);
+        console.log(n + m);
+        // console.log(new Number(1));
+        // console.log(Object(1));
+    }
+    var obj = {}
+    //fn.call() // fn() //this window
+    //fn.call(1) // fn()
+    //fn.call([]) // fn()
+    //fn.call(null) // fn() // this window
+    //fn.call(undefined) // fn() // this window
+    //fn.call(obj) // this {}
+    fn.call(obj,1) // this {}
+    fn.call(obj,1,2) // this {}
+</script>

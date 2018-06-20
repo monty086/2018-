@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">0</div>
+    <div id="box1">1</div>
+</body>
+</html>
+<script>
+    function changeColor (n){
+        this.style.backgroundColor='yellow'
+        this.innerHTML= Number(this.innerHTML)+n
+    }
+    // function changeColor1 (){
+    //     box1.style.backgroundColor='yellow'
+    // }
+    box.onclick = function () {
+        changeColor.call(this,1)
+    }
+    box1.onclick = function () {
+        changeColor.call(this,3)
+    }
+</script>
