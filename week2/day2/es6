@@ -1,0 +1,16 @@
+var fn2 = function (形参) {
+        //函数体
+    }
+    // 形参只有一个的时候，可以不用写括号
+    let fn4 = (形参) =>{
+        //函数体
+    }
+    let fn5 = a =>{}
+    // 如果函数体直接return了一个值，可以不用写大括号
+    let fn7 =a=>a
+
+    var fn6 = function (a) {
+        var b =2
+        return a
+    }
+    Math.max()

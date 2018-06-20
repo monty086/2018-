@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * apply
+    * 1. apply让前面的函数执行
+    * 2. 第一个参数改变apply前面函数中this
+    * 3. 第二个参数是一个数组，依次传入apply前面的这个函数当作形参
+    *
+    * */
+    function fn(a,b){
+        console.log(this);//{}
+        console.log(a + b);
+    }
+    fn.apply({},[1,2,4])
+
+    var ary = [1,2,4,2,1,4,9]
+    //取数组中的最大值
+    // ary.sort(function (a,b) {
+    //     return b-a
+    // })[0]
+
+    // 假设法
+    // var num =0;
+    // for(var i=0;i<ary.length;i++){
+    //     num=ary[i]>num?ary[i]:num
+    // }
+    // console.log(num);
+
+    // eval 求数组中的最大值
+    var newAry = eval("Math.max("+ary.toString()+")")
+    console.log(newAry);
+    // apply 求数组中的最大值
+    var newAry = Math.max.apply(null,ary)
+    console.log(newAry);
+
+
+</script>

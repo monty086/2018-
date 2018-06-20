@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 1. 检测什么数据类型
+    * 2. 优点
+    * 3. 缺点
+    * */
+    /*
+    * typeof
+    * 基本数据类型，返回值字符串
+    * 不能区分对象数据类型中正则数组和普通对象
+    * 检测null是不是"object"
+    * */
+    // typeof function () {}
+    // typeof []
+
+    /*
+    * instanceof
+    * 检测引用数据类型，检测对象数据类型中的具体细分
+    * 不能检测字面量创建的基本数据类型，可以检测实例创建的基本数据类型，
+    * 可以判断实例是否这个类
+    * */
+    console.log(Function instanceof Object);
+    console.log(Object instanceof Function);
+
+    /*
+    * Object.prototype.toString.call()
+    * 它能检测所有的数据类型，通过对象类原型上的toString方法，利用call来改变this来检测数据类型
+    * 返回值是字符串数据类型
+    *
+    * */
+
+    /*
+    * constructor
+    * 所有实例通过原型链找到这个属性，这个属性指向当前实例所属的类
+    * 不能检测null和undefined 因为没有这两个类
+    * 我们可以通过constructor的name属性输出这个类名
+    *
+    * */
+
+
+
+</script>

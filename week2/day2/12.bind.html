@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * bind
+    * 1. bind第一个参数改变bind前面函数中的this
+    * 2. 返回一个改变this后的函数
+    * */
+
+    function fn() {
+        console.log(this);
+    }
+    var f = fn.bind({name:'zf'})
+    console.log(f);
+    console.log(f.name);
+    console.log(f());
+
+    // bind这个方法一般只改this而不执行函数的时候用
+
+    setTimeout(function(a){
+        console.log(a);
+        console.log(this);//
+    }.bind({}),1000,'2')
+</script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 1. 两个call及两个以上的call，第一个参数必须是函数，否则会报错
+    * 2. 第二个参数改变第一个参数中this
+    * 3. 第三个及第三个以上的参数依次传给第一个参数【函数】当作实参
+    * */
+
+    //typeof typeof typeof 1 // 'string'
+
+    Function.prototype.call = function (obj,...arg) {
+        if(obj==undefined){
+            this(...arg)
+        }else{
+            obj.__proto__.fn=this;
+            obj.fn(...arg)
+            delete obj.__proto__.fn
+        }
+    }
+    // function fn(){
+    //     console.log(this);//{}
+    // }
+    // function fn2(obj,...arg) {
+    //     if(obj==undefined){
+    //         this(...arg)
+    //     }else{
+    //         obj.__proto__.fn=this;
+    //         obj.fn(...arg)
+    //         delete obj.__proto__.fn
+    //     }
+    // }
+    //fn.call({})
+    //var obj = {}
+    //(fn.call).call(obj)
+//----
+    let newFn =()=>{alert(0)};
+    function fn(){
+        //console.log(this);//window {}
+        this() //this is not a function
+    }
+    //fn.call(newFn)
+    // var f = fn.call.call.call;
+    // f.call()
+    fn.call.call.call(newFn,{},1,2,3,5)
+    newFn.call({},1,2,3,5)
+</script>
