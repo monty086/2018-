@@ -2,9 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
 </body>
 </html>
+<script>
+    var fn=  function(){}
+    console.log((1).toString());// '1'
+    console.log(fn.toString());// 'fn()'
+    console.log(true.toString());//'true'
+    console.log([1,2].toString());//'1,2'
+
+    //delete Number.prototype.toString
+    //delete Function.prototype.toString
+
+    //console.log((1).toString()) //'[object Number]'
+
+    Object.prototype.mytoString = function () {
+        var type = this.constructor.name
+        return '[object '+type+']'
+    };
+    console.log((1).mytoString());
+
+    Object.prototype.toString.call(1)
+</script>

@@ -2,9 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
 </body>
 </html>
+<script>
+    Function.prototype.call=function (obj) {
+        //var ary = Array.prototype.slice.call(arguments,1)
+        arguments.__proto__= Array.prototype
+        var ary = arguments.slice(1);
+
+        var first = arguments[0];
+        if(first==undefined){
+            var str = "this("+ary+")" //fn()
+            eval(str)
+        }else{
+            // 希望first在fn中的this是空对象
+            //1. call方法前面的函数fn 中的this变成  call方法参数中的第一个参数   =》fn.call({})
+            first.__proto__.fn=this
+            eval('first.fn('+ary+')');
+            delete first.__proto__.fn
+
+        }
+    }
+    function fn(a,b) { //fn(12,3,4){}
+        console.log(this);  //
+        console.log(a + b);
+    }
+    //var obj = {fn:fn}
+    // fn.call()
+    // fn.call(undefined)
+    // fn.call(null)
+    //fn.call(null,12,3,4)
+    //fn.call({},12,3,4)
+
+    Function.prototype.mycall=function (obj,...arg) {
+       // obj// {} arg// [12,3,4]
+        if(obj==undefined){
+            this(...arg)
+        }else{
+            obj.__proto__.fn=this;
+            obj.fn(...arg)
+            delete obj.__proto__.fn
+        }
+    }
+    var obj = {name:'zhufeng'}
+    fn.mycall(obj,0,3,4)
+</script>
