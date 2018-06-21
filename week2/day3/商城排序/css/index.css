@@ -61,7 +61,7 @@ html,body{
     margin: 20px auto;
 }
 .shopList li{
-    width: 190px;
+    width: 210px;
     padding:0 10px;
     margin:0 10px 10px 0;
     float: left;
@@ -90,7 +90,7 @@ li span{
 }
 .shopList li:hover{
     position: relative;
-    margin-top:-5px;
+    top:-5px;
     box-shadow: 1px 2px 5px gray;
 }
 .shopList li:hover img{
