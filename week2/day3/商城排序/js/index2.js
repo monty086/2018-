@@ -39,11 +39,13 @@ function bindHtml (){
 bindHtml();
 // 4.绑定点击事件，实现sort排序
 for (var i=0;i<btnList.length;i++){
-    btnList[i].flg = -1;
+    btnList[i].flg = -1;//1 升序  -1 降序
     btnList[i].onclick = function () {
         var value = this.getAttribute('attrName');
         this.flg*=-1
         sortAll.call(this,value)
+        arrowColor.call(this)
+        clearArrow.call(this)
     }
 }
 
@@ -54,6 +56,30 @@ for (var i=0;i<btnList.length;i++){
     })
      bindHtml()
 }
+
+ function arrowColor(){
+    var down = this.children[1];
+    var up = this.children[0];
+     if(this.flg>0){ //1 升序
+         up.classList.add('bg');
+         down.classList.remove('bg')
+     } else{
+         up.classList.remove('bg');
+         down.classList.add('bg')
+     }
+ }
+
+ function clearArrow(){
+    for(var i=0;i<btnList.length;i++){
+        if(btnList[i]!=this){
+            btnList[i].children[0].classList.remove('bg')
+            btnList[i].children[1].classList.remove('bg')
+            btnList[i].flg=-1
+        }
+    }
+ }
+
+
 
 
 
