@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * JSON
+    * JSON它不是一种数据类型，它是一种数据格式
+    * 在项目中，JSON数据多运用于客户端和服务端，进行相互的传输，它一种非常广泛的数据格式
+    * 在JSON数据中，属性名和属性值都是用双引号包裹【不可以用单引号】
+    * JSON对象和普通对象功能方法相同，唯一的区别就是写法上的区别
+    * */
+    var obj1 = {name:'zhufeng',age:8}
+    var jsonObj = {"name":"zhufeng","age":8}
+
+    /*
+    * JSON上有两个方法一个是parse，一个stringify
+    * JSON.parse ： 将 JSON字符串转变为JSON对象，多运用与服务端返回是JSON字符串格式，我们可以把转变成对象插入到页面中
+    * JSON.stringify: JSON对象转变成JSON的字符串
+    *
+    * */
+    var str = '[{"name":"zhufeng"},{"name":"zb"}]'
+    console.log(JSON.parse(str));
+
+    var str1 = {"name":"zhufeng"}
+    console.log(JSON.stringify(str1))
+
+    var obj = {name:'zhufeng'};
+    // var newObj = obj;
+    // newObj.name='china';
+    // console.log(obj.name);
+
+    var  newObj = JSON.parse(JSON.stringify(obj))
+    newObj.name='china'
+    console.log(newObj);
+    console.log(obj.name);
+
+
+</script>

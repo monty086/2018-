@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 去掉一个最小值，去掉一个最大值，求剩余数的平均数
+    *
+    * */
+    var ary = [1,2,3,5,6,8,1]
+    function newAry(ary){
+        ary.sort(function (a,b) {
+            return a-b
+        })
+        ary.shift()
+        ary.pop()
+        var count = 0;
+        for (var i=0;i<ary.length;i++){
+            count+=ary[i]
+        }
+        return count/ary.length
+    }
+    function newAry (){
+        //[1,2,4].sort()
+        // arguments // [ary]
+        [].sort.call(arguments,function (a,b) {
+            return a-b
+        });
+        [].shift.call(arguments);
+        [].pop.call(arguments);
+        return eval([].join.call(arguments,'+'))/arguments.length
+        //arguments.sort(function(a,b){return a-b})
+    }
+    console.log(newAry(1,2,3,5,6,8,1));
+</script>
