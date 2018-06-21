@@ -22,7 +22,9 @@ console.log(data);
 // 3将数据绑定到页面当中
 function bindHtml (){
     var str = ''
+    // 循环便利data数据，将数据通过字符串模板绑定到页面上
     data.forEach(item=>{
+        // 其中的变量通过${}这种形式来表现
         str+=`<li>
                 <img src="${item.img}" alt="">
                 <p>${item.title}</p>
@@ -37,42 +39,22 @@ function bindHtml (){
 bindHtml();
 // 4.绑定点击事件，实现sort排序
 for (var i=0;i<btnList.length;i++){
-    // (function () {
-    btnList[i].flg = -1
-        if(i==2) {
-            btnList[i].onclick = function () {
-                this.flg*=-1
-                data.sort((a, b) => {
-                    return (a.price - b.price)*this.flg
-                })
-                bindHtml()
-            }
-        }else if(i==1){
-            btnList[i].onclick = function () {
-                this.flg*=-1
-                data.sort((a, b) => {
-                    return (a.hot - b.hot)*this.flg
-                })
-                bindHtml()
-            }
-        }else{
-            btnList[i].onclick = function () {
-                this.flg*=-1
-                data.sort((a, b) => {
-                    return (new Date(a.time) - new Date(b.time))*this.flg
-                })
-                bindHtml()
-            }
-        }
-    // })()
+    btnList[i].flg = -1;
+    btnList[i].onclick = function () {
+        var value = this.getAttribute('attrName');
+        this.flg*=-1
+        sortAll.call(this,value)
+    }
 }
 
-[1,2].sort((a,b)=>{
-    return (a-b)*-1// 1-2 //-1
-})
-[1,2].sort((a,b)=>{
-    return b-a// 2-1 // 1
-})
+ function sortAll(value) {
+    data.sort((a, b) => {
+        // 判断value和time是否相等，如果相等直接sort，如果不相等使用new Date的方式进行相减。最后乘以this.flg
+        return  (value=='time'?(new Date(a[value]) - new Date(b[value])):(a[value] - b[value]))*this.flg
+    })
+     bindHtml()
+}
+
 
 
 
