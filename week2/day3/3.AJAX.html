@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var data = null;
+    /*
+    * AJAX  async javascript and xml
+    * 异步请求数据
+    *
+    * */
+    // ajax四部曲
+
+    //1.创建一个异步请求的ajax对象，
+    var xhr = new XMLHttpRequest() //
+
+    //2. 打开链接：第一个参数【method】请求方式：get、post、delete、put、head...
+    // 第二个参数【api地址、url地址】：'https:www.baidu.com'
+    // 第三个参数【是否异步】：false同步，true异步
+    xhr.open('get','data.json',false)
+    // 3. 监听状态,当状态发生改变，执行该函数
+    // 当ajax对象的状态【status】变成200的时候：请求成功
+    // 当ajax对象的准备状态成为4，为ajax的最后一步
+    // xhr.responseText 当你请求成功，服务器返回的数据
+    xhr.onreadystatechange = function () {
+        if(xhr.status==200 && xhr.readyState==4){
+            data = JSON.parse(xhr.response)
+        }
+    }
+    // 4.发送ajax请求，实参是传给服务器的参数
+    xhr.send()
+    console.log(data);
+
+</script>
+
+<script>
+    var xhr = new XMLHttpRequest;
+    xhr.open('get','data.json',false);
+    xhr.onreadystatechange = function () {
+        if(xhr.status==200&&xhr.readyState==4){
+            data = JSON.parse(xhr.responseText)
+        }
+    }
+    xhr.send()
+</script>
