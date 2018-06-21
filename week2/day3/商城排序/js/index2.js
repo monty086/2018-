@@ -58,22 +58,27 @@ for (var i=0;i<btnList.length;i++){
 }
 
  function arrowColor(){
+    // 拿到当前a标签下的两个子元素节点，利用索引来表示，一个是up箭头，一个是down箭头
     var down = this.children[1];
     var up = this.children[0];
+    // 利用this.flg的值来表示，是升序还是降序，如果是升序，我给up标签添加一个类名bg，如果是降序，给down元素添加一个bg类名
      if(this.flg>0){ //1 升序
          up.classList.add('bg');
          down.classList.remove('bg')
+         // 否则就移除相对应的元素上的类名
      } else{
          up.classList.remove('bg');
          down.classList.add('bg')
      }
  }
-
+// 其他的箭头需要及时的清空才行，我们需要便利所有的按钮，然后如果便利的每一个标签和当前点击的不同，那么就让其他的元素移除bg类名，
  function clearArrow(){
     for(var i=0;i<btnList.length;i++){
         if(btnList[i]!=this){
             btnList[i].children[0].classList.remove('bg')
             btnList[i].children[1].classList.remove('bg')
+            // 为了让每次点击的时候，其他元素都恢复到默认的升序，我们在清空其他元素状态的时候，给其他元素的flg值都赋值为-1
+            // 这样你再点击的时候，就可以默认升序
             btnList[i].flg=-1
         }
     }
