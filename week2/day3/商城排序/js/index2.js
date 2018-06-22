@@ -51,7 +51,7 @@ for (var i=0;i<btnList.length;i++){
 
  function sortAll(value) {
     data.sort((a, b) => {
-        // 判断value和time是否相等，如果相等直接sort，如果不相等使用new Date的方式进行相减。最后乘以this.flg
+        // 判断value和time是否相等，如果相等直接使用new Date的方式进行相减达到排序效果，如果不相等直接属性名对应的属性值进行相减排序。最后乘以this.flg
         return  (value=='time'?(new Date(a[value]) - new Date(b[value])):(a[value] - b[value]))*this.flg
     })
      bindHtml()
