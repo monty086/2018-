@@ -12,8 +12,10 @@
     /*
     * 解构赋值：根据一个数据值的类型，进行解析并获取其中的内容
     * 一般工作中，我们用数组和对象进行解构赋值
-    *
+    * 再解构赋值中，=是做一个初始的值，：给当前属性名起了一个别名
     * */
+    // 数组的解构赋值
+
     let ary = [1,2,4];
     //1 ary[0]=>1
     // 2 ary[1]=>2
@@ -43,8 +45,9 @@
     // [b,a]=[a,b]
     // console.log(a, b);
 
+    // 对象的解构赋值
     let obj = {name:'zf',age:8};
-    //let {a,b}=obj
+    // let {a,b}=obj
     // let {name:name,age:age}=obj
     // console.log(name, age);
 
@@ -52,14 +55,27 @@
     //console.log(name, age);// age is not defined
     //console.log(newName, newAge);
 
-    obj.say='haha'
+    obj.say='haha';
     //let {say}=obj
     // console.log(say);
     // console.log(obj.say);
-    let {say} = obj;
-    console.log(window.say);
-    console.log(obj.say);
-    console.log(say);
+    let {say='china'} = obj;
+    console.log(window.say); //undefined
+    console.log(obj.say); //undefined
+    console.log(say); // 'haha'
+
+    function fn({name='china',age:newAge,c=0}={}){
+       // console.log(name,age);// 'zf' 9
+        console.log(c,newAge);// 'zf' 9
+    }
+     fn({name:'zf',age:9})
+    //fn()
+
+    var obj = {name:'zf',age:0,sound:[3,4,2,1]}
+    // es6 'zf' 3 [2,1]
+    let {name:a,sound:[b,,...c]}=obj;
+    console.log(a,b,c);//'zf' 3 [2,1]
+
 
 
 </script>

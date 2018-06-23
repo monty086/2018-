@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 箭头函数
+    *
+    * */
+    function fn(){
+        // 函数声明式
+    }
+    let fn9 = function () {
+        // 函数表达式
+    }
+    let fn0 = ()=>{
+       //es6的语言
+    }
+    // 匿名的箭头函数 ()=>{}
+    // 自执行函数 (()=>{})() (()=>{}())
+    // 如果形参只有一个的时候，可以忽略不写小括号
+    let fn2 = a =>{console.log(a)}
+    fn2(9)
+    // 如果函数体中，只有一条js语句，return xxx ，可以忽略不写大括号
+    let fn3 = a =>a
+    function fn8 (a){
+        return function () {
+            return xxx
+        }
+    }
+
+    // 箭头函数当中没有arguments，我们可以通过...arg的这种方式来实现箭头函数中，拿到实参的集合，而且它是一个数组，可以用数组的方法
+    let fn4 = (...arg)=>{
+        //console.log(arguments);
+        console.log(arg);//[2,3,5,6]
+        // 间接的代替了arguments，还拥有了数组的方法
+    }
+    fn4(2,3,5,6)
+
+    // 箭头函数中没有this，你要找this就看当前函数的上下文
+    let  f = ()=> {
+        console.log(this);
+    }
+    f() // window
+    f.call(1)
+    var f3 = f.bind(23);
+    f3()//window
+
+    let obj = {
+        fn:(function(){
+            // this
+            var _this = this
+            return  ()=> {
+                //console.log(_this);
+                console.log(this);
+            }
+        })()
+    }
+    obj.fn() // this=>obj
+    // var fm = obj.fn;
+    // fm()
+    // obj.fn.call(window)
+
+    // 箭头函数没有this，求箭头函数中的this，就看当前箭头函数创建的上下文
+    let fnf = ()=>{
+        console.log(this);}
+    var obj2 = {
+        fnf:fnf,
+        fn:function () {
+            let fn =()=>{
+                console.log(this);
+            }
+            return fn()
+        }
+    }
+    obj2.fn()// obj2
+    obj2.fnf() // window
+    var obj3 = {
+        name:'我是老三',
+        fn:obj2.fn
+    }
+    obj3.fn() // this=> obj2 obj2 obj3 obj2 obj2
+
+    function newFn(){
+        this.name='zf';
+        this.age=9
+    }
+    new newFn()
+
+    // 箭头函数不可以使用构造函数的方式来执行
+    let arrowFn = ()=>{
+        this.name='zf';
+        this.age=9
+    }
+    //console.log(new arrowFn());
+    console.log(arrowFn.prototype);//Object Function undefined
+
+    // 高级箭头函数
+    let oldFn = a =>b=>c=>a+b+c;
+    console.log(oldFn(1)(2)(3)); // 6
+
+</script>
