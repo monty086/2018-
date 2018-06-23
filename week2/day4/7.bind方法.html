@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">我是box</div>
+</body>
+</html>
+<script>
+    /*
+    * bind方法
+    * 也是用来改this的，第一个参数用来改变bind前面函数中的this，第二个及第二个以后的参数，用来给bing前面的函数依次传参，最后返回一个改变this后的新函数，当前函数不执行
+    * */
+    function fn(){
+        console.log(this);
+        console.log(arguments);
+    }
+    var f =fn.bind(1,2,3,4)
+    f()
+
+    box.onclick=function () {
+        //console.log(this);//box
+        //fn() // window
+        //f() Number(1)
+        fn.bind(this)()
+    }
+</script>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 2个及2个以上的call方法，第一个参数必须是函数，否则统统都报错
+    * 如果是函数，我们就让它执行
+    * 连call中，第二个参数是用来改变第一个函数参数中的this
+    * 第三个及第三个以后的参数，当作实参依次传入第一个函数
+    * */
+    function fn(n) {
+        //this() // window()
+        console.log(n);
+    }
+    function f(n,m) {
+        console.log(this);
+        console.log(n + m);
+    }
+    //fn.call()
+    fn.call.call(f,1)// N(1) NaN
+    fn.call.call(f); // WIN NaN
+    fn.call.call.call(f,null,1) // WIN NAN
+    fn.call.call.call.call.call(f,0,1,2,4); // N(0) 3
+    fn.call.call(null)// NULL IS NO FUNCTION
+    fn.call.call.call(f,1,2) // N(1) NAN
+
+</script>

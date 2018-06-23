@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 解构赋值：根据一个数据值的类型，进行解析并获取其中的内容
+    * 一般工作中，我们用数组和对象进行解构赋值
+    *
+    * */
+    let ary = [1,2,4];
+    //1 ary[0]=>1
+    // 2 ary[1]=>2
+    // 4 ary[2]=>4
+    // let [a,b,c] = ary
+    // console.log(a, b, c);//[1,2,4]
+    // let [a] = ary;
+    // console.log(a);//1
+    // let [,,c] = ary
+    // console.log(c);//4
+
+    // let [a,...c] = ary;
+    // console.log(a, c);
+
+    // let newAry = [2,6];
+    // let [a,b=3] = newAry;
+    // console.log(a, b);
+
+    //let a =2;b=5;
+    // let c = null;
+    // c=a;
+    // a=b;
+    // b=c
+    // a=a+b;
+    // b=a-b;
+    // a=a-b
+    // [b,a]=[a,b]
+    // console.log(a, b);
+
+    let obj = {name:'zf',age:8};
+    //let {a,b}=obj
+    // let {name:name,age:age}=obj
+    // console.log(name, age);
+
+    //let {name:newName,age:newAge} = obj;
+    //console.log(name, age);// age is not defined
+    //console.log(newName, newAge);
+
+    obj.say='haha'
+    let {say='zfpx'} = obj;
+    console.log(say);
+
+</script>

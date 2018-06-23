@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function fn(){
+        //arguments
+        console.dir(arguments)
+    }
+    fn(1,2,3,5)
+
+    function f(n){
+        if(n<=0){
+            return 0
+        }
+        // return n+f(n-1)
+        // return n+arguments.callee(n-1)
+        return n+f.prototype.constructor(n-1)
+    }
+    f(100)
+    // caller 调用者，谁调用这个函数，caller指的就是谁
+
+    function f2(){
+        console.log(f2.caller);// 调用者的身份，
+        console.log(arguments.callee.caller);//
+    }
+    //f2()
+    function f3() {
+        f2()
+    }
+    f3()
+</script>

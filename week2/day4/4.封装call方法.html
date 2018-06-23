@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    Function.prototype.call=function (obj) {
+        var ary = [];
+        for (var i=1;i<arguments.length;i++){
+            ary[ary.length]=arguments[i]
+        }
+        if(obj==undefined){
+            eval('this('+ary.toString()+')')//'this(1,2,4)'
+        }else{
+            obj.__proto__.fn = this;
+            eval('obj.fn('+ary+')');
+            delete obj.__proto__.fn
+        }
+    }
+    function fn(n) {
+        console.log(this);
+        console.log(++n);
+    }
+    var obj  ={name:'zf'}
+    fn.call(obj,1,2,4)
+</script>

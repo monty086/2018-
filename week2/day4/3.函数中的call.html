@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 函数中的公有方法
+    * 函数类上的公有方法和属性，作为一个函数或者函数类实例都可以进行调用
+    * call
+    * apply
+    * bind
+    *
+    * */
+    console.dir(Function.prototype);
+
+    /*
+    * call方法
+    * 1. 改变call前面函数中的this【call的第一个参数】
+    * 2. 让call方法前面的函数执行
+    * 3. 从第二个及第二个以后的参数，分别给call前面的函数传参
+    * */
+    function fn(n,m){
+        console.log(this);//[] {}
+        console.log(n + m);//8
+    }
+    // 第一个参数如果是基本数据类型，那么函数中的this，就是实例化该基本数据类型，如果它是引用数据类型，那么就是它本身
+    //fn.call([],3,5)
+    //fn.call([],3)
+
+    Function.prototype.call=function (obj) {
+        // 是否传参
+        // 是否要返回值
+        var ary = [];
+        for (var i=1;i<arguments.length;i++){
+            ary[i-1]= arguments[i]
+        }
+        console.log(ary);
+        if(obj == undefined){
+            // this就是当前函数类的实例fn，也只有函数类的实例可以调用这个call方法
+//this()
+            // new Function('a','b')
+            // function (a){b}
+            (new Function('_this','_this('+ary+')'))(this)
+            //_this('+ary+')') => '_this(3,4,5)'
+// (function (_this) {
+//     _this(ary)
+//     //this() // window
+// })(this)
+        }else{
+            /*function fn(){ console.log(this)}
+            fn()
+            var obj = {}
+            obj.fn=fn
+            obj.fn()*/
+            obj.__proto__.fn = this;// {fn:this}
+            //obj.fn()//obj.fn()
+            (new Function('obj','obj.fn('+ary+')'))(obj)
+// (function(){
+//     obj.fn(3,4,5)
+// })()
+            delete obj.__proto__.fn
+        }
+    }
+    // fn.call(null,1,2,4)
+    // fn.call(undefined,1,2,4)
+    var obj = {}
+    fn.call(obj,3,4,5)
+
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * apply方法和call方法相同，都是改变this，让apply前面的函数执行，但是唯一不同的是，参数是一个数组，将这个数组，依次传入apply前面的这个函数
+    *
+    * */
+
+    function fn(a,b) {
+        console.log(this);
+        console.log(a + b);//3
+    }
+    fn.apply(1,[1,2,4])
+
+    Math.max(1,2,4,5)
+    Math.max.apply(null,[1,2,3,5])
+    function f1(){
+        Math.max.apply(null,arguments)
+    }
+    f1(1,2,4,5)
+    // sort排序
+    // 数学函数Math.max
+    //假设法
+    var max = 0;
+    for(var i=0;i<ary.length;i++){
+        if(max>ary[i])max=ary[i]
+    }
+</script>

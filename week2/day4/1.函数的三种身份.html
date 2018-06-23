@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 1. 普通的函数
+    * 2. 类【自定义类和内置类】
+    * 3. 函数类的一个实例
+    *
+    * */
+    function fn() {
+        console.log(fn.caller);
+    }
+    console.dir(fn)
+    var f = new fn()
+    console.log(f.__proto__ == fn.prototype);
+
+    // 构造函数传参数，
+    // 构造函数中的参数：如果只有一个参数，当前匿名函数的函数体
+    // 如果有2个或者2个以上的参数,最后一个参数都是函数体，除了最后一个参数，其他的参数都是形参
+    var f1 = (new Function('a','b','a++;console.log(a,b)'))(1,2)
+    console.log(f1);
+    //console.log(f1.name);  //anonymous
+</script>
