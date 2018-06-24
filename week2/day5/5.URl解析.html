@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var str = 'www.baidu.com?path1=zhu&path2=feng&path3=zhufeng';
+    var reg = /[?&](\w+)=(\w+)/g
+    // split  1.字符串转数组 2.根据指定的符号
+    // match 输出字符串的详细信息
+    // replace 实现字符串的替换，
+    // search  根据制定字符找索引
+
+    // var newStr = str.split('?')[1];
+    // //[path1=zhu,path2=feng,path3=zhufeng]
+    // var value = newStr.split('&');
+    // var obj = {};
+    // for(var i=0;i<value.length;i++){
+    //     var cur = value[i].split('=');//[path1,zhu]
+    //     obj[cur[0]]=cur[1]
+    // }
+    // console.log(obj);
+
+
+    // var  newStr = str.split(/[?&=]/)
+    // console.log(newStr);
+    // newStr.shift();
+    // // [ "path1", "zhu", "path2", "feng", "path3", "zhufeng"]
+    // var obj = {};
+    // for(var i=0;i<newStr.length;i+=2){
+    //     obj[newStr[i]]=newStr[i+1]
+    // }
+    // console.log(obj);
+
+
+    var reg = /(\w+)=(\w+)/g;
+    // var ary = str.match(reg);
+    // var obj = {}
+    // for(var i=0;i<ary.length;i++){
+    //     obj[ary.split('=')[0]]=ary.split('=')[1]
+    // }
+
+    var newObj = {};
+    str.replace(reg,function () {
+        return newObj[arguments[1]]=arguments[2]
+    })
+    console.log(newObj);
+
+    var newObj = {};
+    var reg = /&?(\w+)=(\w+)/g;
+    var str = 'www.baid.com?path1=zhu&path2=feng&path3=zhufeng';
+
+    newObj = str.split('?')[1].replace(reg,`$1:'$2',`);
+    console.log(eval("({"+newObj+"})"));
+</script>

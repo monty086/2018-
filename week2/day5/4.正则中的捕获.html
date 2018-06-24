@@ -70,4 +70,14 @@
     console.log('zhu2017feng2018zf2019'.match(reg));
     // 使用字符串中的match方法，如果正则没有加g的话，只捕获第一次看到的内容，如果正则加全局修饰符g，将字符串中所有符合正则的规则都放到一个数组当中
 
+    // 贪婪性
+    // 正则再捕获的如果有添加量词元字符的时候，碰到符合条件的规则，会全部捕获出来，这个属于正则贪婪性
+    // 为了解决这种贪婪性，我们可以在量词元字符的后面添加？
+    var reg = /\d+?/;
+    console.log(reg.exec('zhufeng2018'))//
+    var reg = /\d{2,4}/ // 这个属于正则贪婪性
+    console.log(reg.exec('zhufeng20182019'))//
+    var reg = /\d{2,4}?/ // 这个属于正则贪婪性
+    console.log(reg.exec('zhufeng20182019'))//
+
 </script>
