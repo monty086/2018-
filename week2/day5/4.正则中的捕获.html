@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 正则中的捕获：
+    * 正则中的捕获是exec，捕获的时候先进行正则的验证，如果验证通过的话返回一个数组，如果不通过返回一个null
+    * 返回的数组的内容
+    * 1. 大正则捕获的内容
+    * 2. 小分组捕获的内容
+    * ...
+    * 3. 大正则捕获开始的索引
+    * 4. 原字符串
+    * 5. 分组的命名
+    * */
+    var reg = /\w(\d)(\d)/;
+    console.log(reg.exec('zhufeng999'));//["g9", "9", "9",index: 6, input: "zhufeng999", groups: undefined]
+
+    // 懒惰性
+    // 正则中的懒惰性，只要有一个字符符合条件，就直接捕获出来
+    // 解决正则中的懒惰性，我们可以通过给当前的正则添加一个修饰符g，让它每次捕获都依次进行
+    // 这种方式有一个弊端，每次想要全部捕获的都得执行多次
+    var reg = /\d+/;
+    console.log(reg.exec('zhu2017feng2018zf2019'));
+    console.log(reg.exec('zhu2017feng2018zf2019'));
+    console.log(reg.exec('zhu2017feng2018zf2019'));
+    console.log(reg.exec('zhu2017feng2018zf2019'));
+
+    // 所以我们必须提供一个解决方法，封装一个方法
+    var reg = /\d+/g;
+    console.log(reg.lastIndex);//0
+    console.log(reg.exec('zhu2017feng2018zf2019'));//2017
+    console.log(reg.lastIndex);//7
+    console.log(reg.exec('zhu2017feng2018zf2019'));//2018
+    console.log(reg.lastIndex);//15
+    console.log(reg.exec('zhu2017feng2018zf2019'));//2019
+    console.log(reg.lastIndex);//21
+    console.log(reg.exec('zhu2017feng2018zf2019'));//null
+    //console.log(reg.lastIndex);//0
+    //console.log(reg.exec('zhu2017feng2018zf2019'));//2017
+
+    var reg = /\d+/;
+    RegExp.prototype.execAll=function (str) {
+        // 第一次捕获的内容，是一个数组，
+        var value = this.exec(str);
+        var ary = [];
+        // 判断用户创建的正则是否添加了全局修饰符，如果没有添加全局修饰，只返回第一次捕获的内容
+        if(!this.global){
+            return value
+        }
+        // 循环这个捕获的内容，如果每次都能全局捕获到，那么这个循环继续，直到捕获不到的时候，返回一个null，循环停止
+        while(value){
+            // 再空数组中添加这样一个值
+            ary.push(value[0])
+            // 我们要不断进行捕获来进行验证，只有返回值为null才不继续进行
+            value = this.exec(str)
+        }
+        return ary
+    }
+    console.log(reg.execAll('zhu2017feng2018zf2019'));
+    // match=>正则
+    var reg = /\d+/g;
+    console.log('zhu2017feng2018zf2019'.match(reg));
+    // 使用字符串中的match方法，如果正则没有加g的话，只捕获第一次看到的内容，如果正则加全局修饰符g，将字符串中所有符合正则的规则都放到一个数组当中
+
+</script>

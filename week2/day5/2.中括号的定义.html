@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 中括号中的定义
+    * 中括号中的特殊字符都代表它本身的含义 \d \w
+    * 中括号中的 ^ - 都代表 特殊的含义
+    * 中括号中的多个及多个区间数字，都是取个位数的任意一个数字
+    * [1232-989]和 | 区分开
+    * */
+
+    // var reg = /[189]/g;
+    // var reg = /^[189]$/
+    // console.log(reg.test('1')); //
+    // console.log(reg.test('189'));
+    // console.log(reg.test('1819')); //true
+    // console.log(reg.test('189'));  //
+    // console.log(reg.test('119')); //
+    // console.log(reg.test('118')); //
+    //  console.log(reg.test('0'));
+
+    //var  reg = /[?.&]/  // - ^
+    //var  reg = /^[a-z0-9A-Z]$/  //
+    var reg = /\d/
+    var reg = /\w/
+    var reg = /[^a-zA-Z0-9_]/;
+    var reg = /[0-z]/ // 0-9 a-z
+    var reg = /11|22/
+    var reg = /[12-99]/
+    var reg = /[^12-99]/
+    var reg = /[^a-z]/
+    console.log(reg.test('6'))
+
+    var reg = /^(18|19)/
+    var reg = /(18|19)$/
+    // '189'
+    console.log(reg.test('aakdkd19'));
+
+    var reg = /[.]/ // .再中括号当中，只表示‘.’这个字符，不再具有特殊的含义
+    console.log(reg.test('n'));
+
+    // 16-89 16-19 20-89 (1[6-9]|[2-8]\d)
+    var reg = /(1[6-9]|[2-8]\d)/;
+    console.log(reg.test('20'));
+
+    // 18-64
+    // [18-64] //18-29[1-2][8-9]
+    // 18-19 1[8-9]
+    // 20-59 [2-5]\d
+    // 60-64 6[0-4]
+    var reg = /(1[8-9]|[2-5]\d|6[0-4])/;
+    console.log(reg.test('59'));
+    console.log(reg.test('19'));
+    //19-49
+    //5-76
+
+    // 手机号
+    //'18935280825'
+    var reg = /^\d{11}$/
+    // 898989898989
+    var reg = /^1\d{10}$/;
+
+    // 身份证
+    // 140502 1xxx 0825 25 1 0 X=>10
+    // 00-18 (0\d|1[0-8])
+    var reg = /^\d{6}(1[89]\d{2}|20(0\d|1[0-8]))(0[1-9]|1[0-2])(0[1-9]|[1-2]\d|3[0-1])\d{3}(\d|X)$/;
+
+    console.log(reg.test('130706199306180312'));
+
+    // 匹配一个数字
+    /*
+    * -5
+    * 5
+    * 1000000000000
+    * 0.5
+    * -0.05
+    * */
+    var reg = /^-?(\d|[1-9]\d+)(\.(\d*[1-9]))?$/;
+    '15.0'
+    '-100000.000000004'
+
+    // 匹配字符串中的前后的空格
+    var reg = /^ +| +$/
+    var str = '  a   ';
+    str.trim()
+
+
+    // var reg = /\d/g
+    // console.log(reg.test('zhu6fengpei'));
+    // console.log(reg.lastIndex);//4
+    // console.log(reg.test('84zhufengpei'));
+    // console.log(reg.lastIndex);//6
+    // console.log(reg.test('84zhufengpei'));
+
+    //console.log(reg.test('aaaaaaaa1abcd'));//
+
+
+    var reg = /\d/g;
+    console.log(reg.lastIndex);//0
+    console.log(reg.test('z5z6')); //true
+    console.log(reg.lastIndex);//2
+    console.log(reg.test('z5z6')); // true
+    console.log(reg.lastIndex);//4
+    console.log(reg.test('z5z6')); //false
+    console.log(reg.lastIndex);// 0
+
+</script>

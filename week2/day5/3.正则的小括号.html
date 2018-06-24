@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 小括号
+    * 1. 提高优先级
+    * 2. 分组引用
+    * 3. 分组捕获
+    *
+    * 我们再正则当中使用小括号，不一定是为了分组捕获，也有可能是为了提高优先级以及分组引用，所以我们需要再括号里面添加一个?:,这样的话属于破坏分组，分组捕获就捕获不到了
+    * */
+    var reg = /\w(17|18)/
+    var reg = /\w17|18/
+    console.log(reg.test('18'));//false
+    reg.test('a17')
+    console.log(reg.test('1'));//false
+
+    var reg = /^\w(\w)\1\w$/;
+    // \1表示分组引用， 引用的是第一个小分组的内容
+    var reg = /^(\w)(\w)\1\2\w$/;
+    console.log(reg.test('ababc'));
+    console.log(reg.test('oppo'));
+    console.log(reg.test('http'));
+    console.log(reg.test('good'));
+    console.log(reg.test('foot'));
+    console.log(reg.test('food'));
+    console.log(reg.test('feel'));
+    console.log(reg.test('fool'));
+
+    var reg = /\w(?:\d+)/
+    console.log(reg.exec('zhufeng2018'));// ["g2018", "2018", index: 6, input: "zhufeng2018", groups: undefined]
+
+    // 大正则捕获的内容["g2018", index: 6, input: "zhufeng2018", groups: undefined]
+
+
+
+</script>
