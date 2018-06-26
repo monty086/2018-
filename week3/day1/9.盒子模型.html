@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body{
+            display: flex;
+            height: 100%;
+            flex-flow: row;
+            /*按照行方式排列*/
+            align-items: center;
+            /*水平居中*/
+            justify-content: center;
+            /*垂直居中*/
+        }
+        /*.outer{*/
+            /*box-sizing: border-box;*/
+        /*}*/
+        /*#box{*/
+            /*width: 100px;*/
+            /*height: 100px;*/
+            /*background: royalblue;*/
+            /*padding:20px;*/
+            /*border:10px solid #666;*/
+            /*margin:10px;*/
+            /*box-sizing: inherit;*/
+        /*}*/
+        #box{
+            width: 100px;
+            height: 100px;
+            background: royalblue;
+            /*position: absolute;*/
+            /*top:0;*/
+            /*left:0;*/
+            /*right:0;*/
+            /*bottom:0;*/
+            /*margin: auto;*/
+
+            /*position: absolute;*/
+            /*top:50%;*/
+            /*left:50%;*/
+            /*margin-top: -50px;*/
+            /*margin-left: -50px;*/
+
+
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div id="box"></div>
+    </div>
+</body>
+</html>
+<script>
+    /*
+    * css盒子模型分为标准盒模型和怪异盒模型
+    *
+    * 标准盒模型 ,盒子的宽度就是内容【content】的宽度
+    *
+    * 怪异盒模型：
+    * box-sizing: border-box content-box【标准盒模型】 inherit
+    * border-box:盒子的宽度就是内容+padding+border
+    * inherit：继承了父级的盒子模型属性
+    * */
+
+    /*
+    * 让一个盒子垂直水平居中
+    * js盒子模型，用js来实现水平居中
+    * */
+</script>

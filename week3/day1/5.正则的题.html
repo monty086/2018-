@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+     var str = 'css:500,js:4800,node:5000,vue:100,html:2000';
+
+     var reg = /(\w+):(\d+)/g ; //["css:500", "css", "500", index: 0, input: "css:500,js:4800,node:5000,vue:100,html:2000", groups: undefined]
+     // 参数1 ：大正则匹配到的内容
+     // 参数2 ：第一个小分组匹配到的内容
+     // 参数3 ：第二个小分组匹配到的内容
+     // 参数4 【index】： 匹配字符的索引位置index
+     // 参数5 [input] : 代表原字符串
+     console.log(reg.exec(str)[1]); // css
+     console.log(reg.exec(str)[1]); // 500
+     //console.log(str.replace(/:(\d+)/g, '1'));
+     //    /(\w+):(\d+)/g
+     var newStr = str.replace(reg,function () {
+         //'css:500,js:4800,node:5000,vue:100,html:2000';
+
+         console.log(arguments)//["css:500", "css", "500", 0, "css:500,js:4800,node:5000,vue:100,html:2000", callee: ƒ, Symbol(Symbol.iterator): ƒ]
+         //"css:500"
+         // "CSS:￥500"
+         return arguments[1].toUpperCase()+':￥'+arguments[2]
+     })
+     console.log(str);
+     console.log(newStr);
+
+     var es6str = str.replace(reg,(...arg)=>arg[1].toUpperCase()+':￥'+arg[2])
+     console.log(es6str);
+
+     //var $$ = str.replace(reg,'$1:￥$2')
+     console.log($$);
+</script>

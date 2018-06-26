@@ -1,0 +1,14 @@
+
+
+1. js的盒子模型-13个属性
+2. 封装2个方法，一个win方法，一个offset方法
+3. 跑马灯
+4. 回到顶部（基本）
+5. 单张图片的延迟加载
+6. 多张图片延迟加载
+
+
+1. 封装getcss setcss groupcss css
+2. 封装hasclass addclass removeclass toggleclass
+3. 封装toJson win offset toArray
+4. 瀑布流

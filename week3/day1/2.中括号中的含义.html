@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * []中括号当中的字符代表其中任意一个字符
+    * [1(23-53)4] //代表一个字符，
+    * []中\d \w \s 都代表特殊元字符的意思，其他字符都代表本身含义
+    * [^]// ^代表非，取反
+    * [-]// -在中括号中代表区间的意思
+    *
+    * */
+
+    // console.log(/[\d]/.test('1'));
+    // console.log(/[\w]/.test('1'));
+    // console.log(/[\b]/.test('1'));
+
+    var reg = /18|19/
+    var reg = /^18|19$/ // 'aaaaaaaaaa19' '18少了几分路上看见发'
+    var reg = /^(18|19)$/ //  /^18$/ /^19$/
+    var reg = /^1(8|1)9$/ //  /^18$/ /^19$/
+    console.log(reg.test('189')); //true
+    console.log(reg.test('819')); // false
+    console.log(reg.test('119')); // true
+    console.log(reg.test('918')); // false
+    console.log(reg.test('1819')); // false
+
+    // 正则表现一个数字
+    // -1 5 90 -0.5 0.05
+    var reg = /^-?(\d|[1-9]\d+)(\.(\d+))?$/;
+
+    // 正则来匹配字符串的开头和结尾
+    var reg = /^ +| +$/g
+    var str = '  a  '//''
+    console.log(str.trim());
+    console.log(str.replace(reg, ''));
+
+    // 通过正则匹配年龄 28-69  10-64  10-59 60-64
+    // 2 0-8 29-30 30-60 0-9
+    // 2 8-9 30-59 6 0-9
+    // 2 8-9 3-6\d
+
+    var reg = /^(2[8-9]|[3-6]\d)$/
+
+
+</script>

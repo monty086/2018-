@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var str = 'www.baidu.com?path1=js&path2=css&path3=node';
+
+   /* var newStr = str.split('?')[1];
+    var ary = newStr.split(/[&=]/);
+    console.log(ary);
+    var obj = {}
+    //["path1", "js", "path2", "css", "path3", "node"]
+    for(var i=0;i<ary.length;i+=2){
+        obj[ary[i]]=ary[i+1]
+    }
+    console.log(obj);*/
+
+   //'path1=js&path2=css&path3=node'
+   //'path1:'js',path2:'css',path3:'node'
+    var obj = str.split('?')[1].replace(/=/g, ":'").replace(/&/g, "',");
+    console.log(obj);
+    var newObj = eval("({"+obj+"'})");
+    console.log(newObj);
+
+</script>
