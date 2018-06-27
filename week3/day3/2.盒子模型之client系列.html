@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body{
+            height: 500%;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 10.5px dashed seagreen;
+            margin:10px;
+            background: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        我是内容
+    </div>
+</body>
+</html>
+<script>
+    /*
+    * client系列
+    * clientWidth:当前元素可视窗口的宽度，不包括滚动条和边线，【width+padding(左右)】
+    * clientHeight:当前元素可视窗口的高度，不包括滚动条和边线【height+padding(上下)】
+    * clientLeft: 当前元素的左边框的宽度【左border的宽度】
+    * clientTop: 当前元素上边框的宽度【上border的宽度】
+    * */
+
+    document.documentElement.clientWidth||document.body.clientWidth
+
+    function win(attr,value) {
+        if(value == undefined){
+            return document.documentElement[attr]||document.body[attr]
+        }
+        document.documentElement[attr]=value;
+        document.body[attr]=value
+    }
+
+    console.log(win('clientWidth'));// 1264
+</script>

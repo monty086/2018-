@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            /*position: absolute;*/
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 10px dashed red;
+            /*margin: 10px;*/
+            background: darkcyan;
+        }
+        .outer{
+            position: relative;
+            width: 500px;
+            height: 500px;
+            border:100px solid darkgoldenrod;
+            padding:100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div id="box">我是内容，请别扰我</div>
+    </div>
+
+</body>
+</html>
+<script>
+    /*
+    * offset
+    * offsetWidth:当前元素的宽度 content+padding+border 【clientWidth+border(左右)】
+    * offsetHeight:当前元素的高度 content+padding+border【clientHeight+border(上下)】
+    * offsetParent:当前元素的父级参照物；如果当前元素的父级的父级以上都是定位，那么它的父级参照物是body，如果只要其中一个父级设置了定位，那么它的父级参照物就是该父级元素
+    * offsetTop: 当前元素的外边距距离父级参照物的内边距的上偏移量
+    * offsetLeft: 当前元素的外边距距离父级参照物的内边距的左偏移量
+    *
+    * */
+
+    //如果盒子的父级参照是body的话，它的offsetLeft就是当前盒子的外边距距离body的距离
+
+    //通过js来求盒子右边框的宽度
+    // var h = box.offsetWidth-box.clientWidth-box.clientLeft
+
+    //通过js来让盒子垂直水平居中
+    /*var winW = document.documentElement.clientWidth||document.body.clientWidth;
+    var winH = document.documentElement.clientHeight||document.body.clientHeight;
+    var width = (winW-box.offsetWidth)/2;
+    var height = (winH-box.offsetHeight)/2;
+    box.style.left=width+'px'
+    box.style.top=height+'px'*/
+
+    function offset (ele){
+        let L = ele.offsetLeft;
+        let T = ele.offsetTop;
+        let parent = ele.offsetParent;
+        while (parent.tagName !='BODY'){
+            // ie 8 下面offsetLeft 是包括border
+            if(!(/MSIE 8/i.test(window.navigator.userAgent))){
+                L+=parent.clientLeft;
+                T+=parent.clientTop;
+            }
+            T+=parent.offsetTop;
+            L+=parent.offsetLeft;
+            parent = parent.offsetParent
+        }
+        return {left:L,top:T}
+    }
+
+    console.log(offset(box).left);
+
+</script>

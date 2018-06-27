@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            width: 600px;
+            height: 200px;
+            border:1px solid red;
+            margin:100px auto;
+            font-size: 0;
+            overflow: hidden;
+        }
+        #box .content{
+            width: 2400px;
+            height: 200px;
+        }
+        .begin ,.end{
+            display: inline-block;
+        }
+        #box img{
+            width: 200px;
+            height: 200px;
+            border: none;
+            filter:sepia(200%);
+            transition: all .2s linear;
+        }
+        .pic{
+            display: inline-block;
+        }
+        #box .pic:hover img{
+            position: relative;
+            top:-5px;
+            filter:blur();
+            z-index: 10;
+        }
+        .begin{
+            background-color: #fff;
+        }
+        /*.move{*/
+            /*transform: translate3d(0 ,-4px, 0);*/
+            /*box-shadow: 0px 15px 30px rgba(0,0,0,.1);*/
+        /*}*/
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="content">
+            <div class="begin">
+                <div class="pic">
+                    <img src="img/1.png" alt="">
+                </div>
+                <div class="pic">
+                    <img src="img/2.png" alt="">
+                </div>
+                <div class="pic">
+                    <img src="img/3.png" alt="">
+                </div>
+                <div class="pic">
+                    <img src="img/4.png" alt="">
+                </div>
+                <div class="pic">
+                    <img src="img/5.jpg" alt="">
+                </div>
+                <div class="pic">
+                    <img src="img/6.png" alt="">
+                </div>
+            </div>
+            <!--<div class="end">-->
+                <!--<img src="img/1.png" alt="">-->
+                <!--<img src="img/2.png" alt="">-->
+                <!--<img src="img/3.png" alt="">-->
+                <!--<img src="img/4.png" alt="">-->
+                <!--<img src="img/5.jpg" alt="">-->
+                <!--<img src="img/6.png" alt="">-->
+            <!--</div>-->
+            <div class="end">
+                <div class="pic">
+                    <img src="img/1.png" alt="">
+                </div>
+                <div class="pic">
+                    <img src="img/2.png" alt="">
+                </div>
+                <div class="pic">
+                    <img src="img/3.png" alt="">
+                </div>
+                <div class="pic">
+                    <img src="img/4.png" alt="">
+                </div>
+                <div class="pic">
+                    <img src="img/5.jpg" alt="">
+                </div>
+                <div class="pic">
+                    <img src="img/6.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    /*
+    跑马灯的思路：
+    * 1.我们让盒子的内容从右向左滚动，我们需要操作盒子的scrollLeft，这样的话，盒子里的内容会跟着发生改变。
+    * 2.不管是从右往左还是从下往上滚动，都是给scroll值增加【它没有负值】
+    * 3. 我们让盒子的内容从右向左滚动，一定会到头，为了防止这种现象发生，我们需要在盒子移动到整个内容的一半的时候，改变盒子内容的scroll值，让它变成0【让它回到最初始的位置】
+    * 4. 我们让盒子匀速滚动，用到了定时器里的setInterval来实现，停止的话只能手动触发停止
+    * 5. 为了让动画更顺畅的进行，最好的时间是13-17ms
+    *
+    *
+    * */
+    // var count =0
+    // var timer = setInterval(()=>{
+    //    count++
+    //     if(count>=10){
+    //        clearInterval(timer)
+    //     }
+    // },20)
+
+    var box = document.querySelector('#box');
+    var begin = document.querySelector('.begin');
+    var H = begin.offsetWidth;
+    function fn(){
+        // this.scrollLeft+=3
+        // if(this.scrollLeft>=H){
+        //     this.scrollLeft=0
+        // }
+        // 通过判断滚动的距离和当前盒子内容的宽度一半的距离是否相等，如果符合条件，让滚动的距离归零，不符合条件，让滚动距离持续累加
+        this.scrollLeft>=H?this.scrollLeft=0:this.scrollLeft+=3;
+    }
+var imgs = document.querySelectorAll('img');
+    for(var i=0;i<imgs.length;i++){
+        imgs[i].onmouseenter=function () {
+            this.classList.add('move')
+        }
+        imgs[i].onmouseleave=function () {
+            this.classList.remove('move')
+        }
+    }
+    var timer = setInterval(fn.bind(box),17)
+    box.onmouseover =function () {
+        clearInterval(timer)
+    }
+    box.onmouseout =function () {
+        timer = setInterval(fn.bind(box),17)
+    }
+</script>
