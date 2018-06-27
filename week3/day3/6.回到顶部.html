@@ -29,6 +29,7 @@
             user-select: none;
             background: darkgray;
             color:#fff;
+            display: none;
         }
     </style>
 </head>
@@ -38,3 +39,48 @@
     </div>
 </body>
 </html>
+<script src="utils.js"></script>
+<script>
+    let up = document.querySelector('p');
+    let winH = utils.win('clientHeight');
+    let timer = null;
+    // let bok = false;
+
+    // onscroll的事件，当滚动条滚动的时候进行触发，点击滚动条上下箭头的也会触发，鼠标滑轮也会触发，键盘上的上下键也会触发，点击滚动条的空白处也会触发，触摸板可以触发此事件，按空格键可以触发此事件
+    window.onscroll =function () {
+        // winTop 当滚动条不断的被触发的时候，我需要实时的跟新滚上去的高度，只有当前这个卷上去的高度小于一屏的时候，我们让up按钮隐藏，否则让up按钮显示
+        // if(bok){
+        //     clearInterval(timer)
+        // }
+        // bok=true;
+        let winTop = utils.win('scrollTop');
+        if(winTop>winH){
+            up.style.display='block'
+        }else{
+            up.style.display='none'
+        }
+    }
+
+    up.onclick = function (e) {
+        //e.stopPropagation();
+        var count = utils.win('scrollTop');
+        // var duration = 1000;
+        // var b = 50;
+        // var step = count/duration*b;
+         timer = setInterval(()=>{
+            // count-=step;
+            count-=100;
+            if(count<=0){
+                clearInterval(timer);
+                utils.win('scrollTop',0)
+            }
+            utils.win('scrollTop',count);
+            // bok=false
+        },50)
+
+    }
+
+    // box.onclick = function () {
+    //     clearInterval(timer)
+    // }
+</script>

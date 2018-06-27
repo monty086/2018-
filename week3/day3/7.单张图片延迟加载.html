@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            width: 300px;
+            height: 200px;
+            margin: 800px auto;
+            background: url('img2/loading.gif') no-repeat;
+            background-size: 100% 100%;
+            border:1px solid #666;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img photo="img2/gougou.jpg">
+    </div>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    /*
+    * 性能优化：
+    * 延迟加载，又名懒加载，利用了用户浏览到的部分，图片在开始加载的原理，实现图片的延迟加载，为了节省性能，也为了节省带宽
+    *
+    *
+    * */
+    let imgG = document.querySelector('img');
+    let boxH = box.offsetHeight;
+    let boxT = utils.offset(box).top;
+    let winW = utils.win('clientHeight');
+    var flg = false
+
+    window.onscroll = fn;
+    function fn() {
+        if(flg)return;
+        let winT = utils.win('scrollTop');
+        if(winW+winT>=boxH+boxT){
+            let newImg = new Image();
+            let url = imgG.getAttribute('photo');
+            newImg.src = url;
+            newImg.onload= function () {
+                imgG.src= this.src;
+                fadeIn(imgG)
+                flg=true
+            }
+        }
+    }
+
+    function fadeIn(ele) {
+        var opacity = Number(window.getComputedStyle(ele)['opacity']);
+        console.log(opacity);
+        var timer = setInterval(()=>{
+            opacity+=0.05;
+            if(opacity>=1){
+                clearInterval(timer)
+                ele.style.opacity=1;
+            }
+            ele.style.opacity=opacity
+        },50)
+    }
+
+
+
+
+
+</script>
