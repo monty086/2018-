@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            width: 260px;
+            height: 200px;
+            border:1px solid red;
+            background: url("img/loading.gif") no-repeat;
+            background-size: 100% 100%;
+            margin:800px auto 200px;
+        }
+        #box img{
+            width: 100% ;
+            height: 100% ;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="" pic="img/gougou.jpg" alt="" id="img">
+    </div>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    // 获取元素
+    let box = document.getElementById('box');
+    let img = document.getElementById('img')
+    // box本身的高度
+    let boxH = box.offsetHeight;
+    // box盒子距离body的高度
+    let boxT = utils.offset(box).top;
+    //浏览器可视窗口的高度
+    let winH = utils.win('clientHeight');
+
+    // 进行浏览器的onscroll事件 ，在事件中进行判断和比较
+    window.onscroll = function () {
+        // 实时获取浏览器划过高度
+        let winS = utils.win('scrollTop');
+        // 判断浏览器窗口的高度+浏览器划过的高度>盒子本身的高度【需求：浏览器划过一半的时候，让盒子进行显示】+盒子距离body的偏移量
+        if(winH+winS>boxH/2+boxT){
+            // 我们需要创建一个图片，进行试错，试着加载这个图片，如果图片加载成功的，我们在图片上的正确的地址，赋值给真实的img图片
+            let newImg = new Image();
+            let url = img.getAttribute('pic');// 通过getAttribute这个属性拿到元素行内上的属性
+            newImg.src = url;// 把属性名对应的属性值赋值给当前的新的图片
+            // 我们让新的图片去加载，如果html结构加载成功，我们就它执行这个函数
+            newImg.onload = function () {
+                img.src = this.src // this=》事件的执行主体，让当前元素的src属性名对应的属性赋值给img的src属性上
+            }
+            // 当新图片加载不成功，执行的方法
+            newImg.onerror = function () {
+                img.src = 'img/error.jpg'
+            }
+        }
+    }
+</script>
