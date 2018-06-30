@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            border:1px solid red;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+<body>
+    <p class="box" id="box">
+        我是内容，我没有溢出我是内容，我没有溢出我是内容，我没有溢出我是内容，我没有溢出我是内容，我没有溢出我是内容，我没有溢出我是内容，我没有溢出我是内容，我没有溢出
+    </p>
+</body>
+</html>
+<script>
+    /*
+    * 盒子模型的scroll系列
+    * 1. scrollWidth: 真实盒子的宽度； 分为有溢出和没溢出，没溢出的话，盒子的宽度就是clientWidth；如果有溢出，盒子的宽度就是左padding+盒子内容的宽度
+    * 2. scrollHeight: 真实盒子的高度； 分为有溢出和没溢出，没溢出的话，盒子的宽度就是clientHeight；如果有溢出，盒子的高度就是上padding+盒子内容的高度
+    * 3. scrollLeft ： 盒子向左卷出去的宽度
+    * 4. scrollTop ： 盒子向上卷出去的高度
+    * 注意一点：如果给盒子设置溢出隐藏，以及溢出滚动，盒子的高度就是 上padding + 盒子中内容的高度
+    *
+    * 注意：scrollTop最小值是0，最大值是整个内容的高度减去一个屏幕【box的高度】的高度
+    * */
+
+    console.log(box.clientWidth);
+    // 没有溢出的时候，box盒子的宽度就是clientWidth
+
+    console.log(box.scrollHeight);
+    // 有溢出的时候，box盒子上padding+内容的高度
+
+    box.onscroll =function () {
+        console.log(box.scrollTop);
+    }
+
+    // 库 utils  jQuery / zepto
+    // 插件  轮播图插件  跑马灯插件  回到顶部插件
+    // UI组件  bootstrap
+    // 框架  vue react
+
+</script>

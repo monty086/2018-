@@ -10,7 +10,7 @@
 // 绑定li标签
     function bindHtml(n){
         page++;
-        if(page>2){
+        if(page>10){
             // alert('别拉了~！已经加载到最底部了')
             utils.css(footer,'display','block');
             window.onscroll=null;

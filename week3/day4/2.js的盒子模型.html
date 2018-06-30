@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            padding:10px;
+            margin:10px;
+            border:10px solid green;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+<script>
+    let box = document.getElementById('box');
+    console.dir(box)
+
+    /*
+    * client系列
+    * clientWidth: 当前元素可视区域的宽度，内容宽度+左右padding，不包括边线和滚动条的宽度
+    * clientHeight：当前元素可视区域的高度，内容高度+上下padding，不包括边线和滚动条的宽度；
+    * clientTop: 当前元素上边框的宽度 【上border】
+    * clientLeft: 当前元素左边框的宽度 【左border】
+    *
+    * */
+    // 浏览器的宽度和高度，就是整个页面中html元素和body元素的宽度和高度
+    document.documentElement.clientWidth // 获取当前文档下的整个html元素
+    document.body.clientWidth//获取当前文档下body元素可视区域的宽度
+
+    /*
+    * 共同点：
+    * 返回值都是数值，没有单位，浏览器的机制会进行四舍五入
+    * 不同点
+    * scrollTop 和scrollLeft 可读可写 【获取和修改】
+    * 其他的值都是只读。不可以进行设置
+    *
+    *
+    * */
+</script>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            padding:10px;
+            margin: 10px;
+            border:10px solid green;
+        }
+        .inner{
+            position: relative;
+            width: 500px;
+            height: 500px;
+            border:10px solid yellowgreen;
+            left:30px;
+        }
+        .outer{
+            left:30px;
+            width: 800px;
+            height: 800px;
+            border:10px solid darkblue;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">
+            <div class="box"></div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var box = document.getElementsByClassName('box')[0];
+    var inner = document.querySelector('.inner')
+    var outer = document.querySelector('.outer')
+    // [div,div]
+    /*
+    * offset系列
+    * 1. offsetWidth：当前元素的宽度，内容的宽+左右padding+左右border
+    * 2. offsetHeight:当前元素的高度，内容的高+上下padding+上下border
+    * 3. offsetParent: 当前元素的父级参照物;
+    * 4. offsetLeft： 当前元素距离父级参照物的左偏移量【当前元素的外边距距离父级参照物的内边距】
+    * 5. offsetTop: 当前元素距离父级参照物的上偏移量【当前元素的外边距距离父级参照物的内边距】
+    * */
+    console.log(box.offsetWidth);
+    // 当前元素的右border的宽度
+    // box.offsetWidth-box.clientWidth-box.clientLeft
+
+    // 让box盒子垂直水平居中
+    var win = document.documentElement||document.body;
+    box.style.marginLeft=(win.clientWidth-box.offsetWidth)/2+'px';
+    box.style.marginTop=(win.clientHeight-box.offsetHeight)/2+'px';
+
+    // 在同一平面内，如果没有元素设置定位，那么他们的父级参照物统一指向body
+    console.log(box.offsetParent);
+    console.log(inner.offsetParent);
+    console.log(outer.offsetParent);
+    // 求一个盒子的父级参照物，取决于你的父级是否设置了定位，如果有定位，那么你的父级参照物就是你的父级
+    // body的父级参照物是null，也就是说，body没有父级参照物
+
+    console.log(box.offsetLeft);
+    // 如果inner和outer都没有定位那么box的父级参照物就是body，那么box的offsetLeft,就是距离距离body左偏移量
+
+    console.log(box.offsetLeft);
+    // 如果inner和outer都有定位的话，那么它的父级参照物就是定位的那个父级
+
+    //如果想要求box距离body的距离
+    // 思路：
+    // 1. 如果box的父级们都没有定位，它的父级参照物就是body，所以距离body的左偏移量，就可以直接求出
+    // 2. 如果box的父级们都有定位，或有的没有定位，我们需要不断的进行相加当前元素的左偏移量，以及父级们的左偏移量，如果父级们有的有宽度，我们还需要加上父级的border的宽度
+  function offset(ele) {
+      // 如果是同一平面内，这样直接就求出来了
+      let L = ele.offsetLeft;
+      let T = ele.offsetTop;
+      // 第二种情况
+      let parent = ele.offsetParent;
+      // 我们需要判断box的父级，如果父级有定位，那么box的偏移量就会发生改变
+      // 我们需要父级参照物的偏移量不断的累加，再加上box的偏移量就是最终box到body的偏移量
+      while(parent){// 父级参照物直到找到body的父级参照物为null的就会停止
+          L+= parent.offsetLeft ;
+          T+= parent.offsetTop;
+          // 注意，如果父级参照物border有宽度的话，我还需要累加上父级参照物边框的宽度
+          L+= parent.clientLeft;
+          T+= parent.clientTop;
+          parent = parent.offsetParent
+      }
+      return {left:L,top:T}
+  }
+    offset(box)
+    //offset(box1)
+
+</script>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        ul{
+            padding: 10px;
+        }
+        ul li{
+            width: 100%;
+            height: 70px;
+            border-bottom: 1px dashed #666;
+            margin-bottom: 10px;
+        }
+        ul li .bg{
+            width: 70px;
+            height: 60px;
+            float: left;
+            margin-right: 10px;
+            background: url("img/loading.gif") no-repeat;
+            background-size:100% 100%;
+        }
+        ul li img{
+            width: 70px;
+            height: 60px;
+            opacity: 0;
+        }
+        p{
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <!--<li>-->
+        <!--<div class="bg">-->
+            <!--<img src="img/1.png" alt="">-->
+        <!--</div>-->
+        <!--<h3>随便写点字</h3>-->
+        <!--<p>详情内容，请点击</p>-->
+    <!--</li>-->
+</ul>
+</body>
+</html>
+<script src="utils.js"></script>
+<script>
+    // 获取元素
+    let ul = document.getElementsByTagName('ul')[0];
+    let url = 'https://www.easy-mock.com/mock/5ab497e674cb3a490381870f/api/news/list';
+    let data = null;
+    let imgs= document.getElementsByTagName('img');
+    let winH = utils.win('clientHeight');
+
+    // 请求信息
+    var xhr = new XMLHttpRequest();
+    xhr.open('get',url,false);
+    xhr.onreadystatechange =function () {
+        if(xhr.readyState==4 && xhr.status==200){
+            data = JSON.parse(xhr.responseText)
+        }
+    }
+    xhr.send()
+
+    // 绑定元素插入到页面中
+    function bindHtml() {
+        var str = ''
+        data.forEach((item)=>{
+            str+=`<li>
+        <div class="bg">
+            <img pic="img/${item.img}" alt="" style="transition: 2s all">
+        </div>
+        <h3>${item.title}</h3>
+        <p>${item.desc}</p>
+    </li>`
+        })
+        ul.innerHTML=str
+    }
+    bindHtml();
+    // 便利每一张图片，让每一张符合要求的图片进行懒加载
+
+    scrollImg() // 第一屏出现的时候，就让该有的图片进行显示
+
+    // 滚动条所到位置进行延迟加载
+    function scrollImg () {
+        for (var i=0;i<imgs.length;i++){
+           let imgT = utils.offset(imgs[i]).top;
+           let imgH = imgs[i].offsetHeight;
+           let winT = utils.win('scrollTop');
+            if(winT+winH>imgT+imgH){
+                // 执行这个方法
+                lazyImg(imgs[i])
+            }
+        }
+    }
+    window.onscroll = scrollImg;
+
+    // 懒加载
+    function lazyImg(ele) {
+        if(ele.flg)return;
+        // 创建一个新的 图片，让这新的图片进行尝试加载
+        let newImg = new Image;
+        // 我们可以通过attribute这个属性到img元素上获取图片地址
+        let imgUrl = ele.getAttribute('pic');
+        // 拿到图片地址以后，我们赋值新创建的图片，
+        newImg.src = imgUrl;
+        // 让新的图片试着去加载它，用onload这个方法判断图片是否加载成功,如果加载成功的话，执行这个函数，
+        newImg.onload = function () {
+            // 将加载的图片的地址还给原有的图片
+            ele.src = this.src;
+            // 新创建的图片没有用了，直接让它指向空指针
+            newImg = null;
+            ele.style.opacity=1;
+            ele.flg=true
+        }
+    }
+
+</script>
