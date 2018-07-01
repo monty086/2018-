@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 寄生组合继承
+    * 子类是私有【属性和方法】继承父类的私有【属性和方法】，子类的公有【属性和方法】继承父类的公有【属性和方法】
+    *
+    * 通过Object.create这种方法，将子类的原型等于这个方法的返回值，一个空对象，【这个空对象有一个__proto__它指向的是传入的第一个参数（Parent.prototype）】,我们可以通过子类的原型的原型链【__proto__】找到父类的原型【Parent.prototype】；这种方式就间接的让子类的公有【属性和方法】继承了父类的公有【属性和方法】
+    *
+    * 注意一点：我们让子类的原型指向了一个空对象，但是子类原型上的constructor丢失了，需要我们手动添加constructor这个属性【为了构造函数机制的完整】
+    *
+    * 注意：我们需要再子类的原型重定向之后，再给子类的原型扩展方法，不然的话会丢失
+    *
+    * 寄生组合继承，利用了call继承和原型继承的共同特点，达到私有继承私有，公有继承公有。
+    * */
+    let obj ={name:'zf'}
+    let f = Object.create(obj)
+    f=={}
+    f.__proto__ = obj
+    /*
+    * Object.create(obj)
+    * 这个方法执行的返回结果是一个对象，给这个对象添加了一个公有的属性name：‘zf’；换句话说：就是让这个对象的__proto__指向了第一个参数obj
+    * */
+    function Parent() {
+        this.x =1
+    }
+    Parent.prototype.getX =function () {
+        console.log(this.x);
+    }
+    function Children(){
+        // 把父类当成一个普通函数，通过call方法修改父类中的this，将父类中的私有属性全部复制了一份，给了子类的实例
+        Parent.call(this)//x:1
+        this.y = 2
+    }
+    Children.prototype.getY = function () {
+        console.log(this.y);
+    }
+    Children.prototype = Object.create(Parent.prototype);
+    let child = new Children()
+    // Object.create(Parent.prototype) ={}
+    // {}.__proto__ = Parent.prototype
+    // Children.prototype = {}
+    // Children.prototype.__proto__ == Parent.prototype
+    child.getX()
+
+
+    // let newObj = Object.create(Parent.prototype)
+    //
+    // console.log(newObj.__proto__ == Parent.prototype);
+    // // 只有实例才有可能通过原型链找到当前所属类的原型
+    // console.log(newObj instanceof Parent);
+</script>

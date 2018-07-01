@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // function Fn(){
+    //    this.x =1 // 私有属性
+    // }
+    // new Fn()
+    //     Fn.prototype.getX=function () {
+    //
+    //     }
+    // 用es6的方式来创建一个构造函数，构造函数的名字就是类名
+    class Fn{
+       constructor(){
+           // 通过constructor这种方式创建私有属性
+           this.x =1 // 私有属性和方法
+       }
+       // 相当于再Fn的原型上扩展方法
+       // Fn.prototype.getX = function(){}
+       getX(){
+
+       }
+       // 这种方式是把Fn当成一个对象，给这个对象上扩展了一个方法
+       static getY(){
+
+       }
+    }
+
+    // console.log(Fn);
+    // console.log(Fn.getY);
+    console.log(new Fn());
+
+    class Parent{
+        constructor(){
+            this.x = 1
+        }
+        getX(){
+            console.log(this.x);
+        }
+    }
+    class Children extends Parent{
+        // 使用extends 继承父类的公有属性和方法，Object.create这种方式来继承
+        constructor(){
+            super() // 继承了父类的私有属性和方法，call继承
+            this.y = 2
+        }
+        getY (){
+
+        }
+    }
+    /*
+    * es6 中的继承，就是 寄生组合继承
+    * 利用call继承和特殊原型继承来实现的【Object.create】
+    * 私有继承私有，公有继承公有
+    * */
+
+    console.log(new Children());
+
+    // 继承
+    /*私有属性继承
+    Parent.call(this)
+    公有属性继承
+    Children.prototype = new Parent();
+    Children.prototype = Object.create(Parent.prototype);
+    Object.setPrototypeOf(Children.prototype,Parent.prototype)
+    es6继承 =>寄生组合继承
+    extends Parent
+    super()*/
+
+    Object.create = function (obj) {
+        function Fn() {
+
+        }
+        Fn.prototype = obj;
+        return new Fn
+    }
+    var f = Object.create({name:'zf'})
+    // f={}
+    // f.__proto__ = Fn.prototype = {name:'zf'}
+</script>

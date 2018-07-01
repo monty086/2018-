@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 原型继承：
+    * 子类的原型继承父类的私有和公有方法
+    *  通过将子类的原型继承父类的实例这种方式来实现，子类的实例既拿到父类是私有属性和方法，而且还拿到了父类的公有属性和方法
+    *
+    *  注意：我们为了构造函数机制的完整，我们需要父类的实例，换句话说也就是子类的原型上添加constructor属性，属性值是子类本身
+    *  注意2：我们想要再子类的原型上扩展属性和方法，需要在子类的原型重定向之后，我们再给其扩展，不然的话，之前扩展的方法都拿不到了
+    * */
+    function Parent() {
+        this.x =1
+    }
+    Parent.prototype.getX = function () {
+        console.log(this.x);
+    }
+
+    function Children (){
+        this.y = 2
+    }
+    Children.prototype.getY =function () {
+        console.log(this.y);
+    }
+    Children.prototype = new Parent();
+    Children.prototype.constructor = Children;
+    // 我们通过原型的继承下的__proto__这种方法修改了父类原型上的方法，但是再ie下是禁止的。这个属于js中面向对象中的重写
+    Children.prototype.__proto__.getZ =function () {
+        
+    }
+    let child = new Children()
+    console.dir(child)
+    //console.log(child.getY);//
+</script>

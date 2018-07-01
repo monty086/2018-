@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * call继承：字类的私有属性和方法继承父类的私有属性和方法
+    * */
+    function Fn(){
+        this.x = 1
+        this.getY=function () {
+
+        }
+    }
+    var f = new Fn;
+    Fn.prototype.getX = function(){
+        console.log(this.x);
+    };
+    // Fn ={getY:f()}
+    // f = new Fn()
+    Fn.getY =function(){
+
+    }
+    // console.log(f.getY());
+    // console.log(f.x);
+    // console.log(f.getX());
+    // 1.普通函数 2.类【自定义类和内置类】 3.函数类中的一个实例
+    // call继承
+    /*
+    * 子类私有【属性和方法】继承父类私有【属性和方法】
+    * 通过将父类当成一个普通函数，执行call方法，将父类当中的this全部变成子类的实例，这样的话子类的实例就增加了一些父类的属性和方法
+    * 注意：子类继承父类的私有属性，需要再子类中先用call方法继承父类是私有属性，不然的话，子类中的私有属性容易被继承到的父类属性所改写
+    * 注意一点：我们通过call方法，继承父类是私有属性和方法，只是将父类的私有属性复制了一份到子类当中，父类的所有公有方法和子类的实例没有任何关系
+    * */
+    function Parent() {
+        this.x = 1
+    }
+    new Parent();
+    Parent.prototype.getX =function () {
+        console.log(this.x);
+    }
+    function Children() {
+        //console.log(this);
+        Parent.call(this)// this.x =1
+        this.x =3;
+        this.y =2;
+    }
+    let child = new Children()//{y:2}
+    console.log(child.y);
+    console.log(child.x);// 3
+</script>
